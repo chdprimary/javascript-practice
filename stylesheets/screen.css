@@ -1,0 +1,67 @@
+body {
+  font-size: 14px;
+  line-height: 22px;
+  background: #f4f4f4 url(../img/background.png);
+  /*color: #555;*/
+  font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+.interface {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+}
+
+a.toc_title, a.toc_title:visited {
+  display: block;
+  color: black;
+  font-weight: bold;
+  margin-top: 15px;
+  text-decoration: underline;
+}
+
+ul.toc_section {
+  font-size: 11px;
+  line-height: 14px;
+  margin: 5px 0px 0px 0px;
+  list-style-type:none;
+  font-family: Lucida Grande;
+  padding-left:0px;
+}
+
+.toc_section li {
+  cursor: pointer;
+  margin: 0 0 3px 0;
+}
+
+.toc_section li a {
+  text-decoration: none;
+  color: black;
+}
+
+.toc_section li a:hover {
+  text-decoration: underline;
+}
+
+div#sidebar {
+  background: #fff;
+  position: fixed;
+  width:200px;
+  top:0; left: 0; bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px 0px 30px 30px;
+  box-shadow: 0 0 20px #ccc;
+  -webkit-box-shadow: 0 0 20px #ccc;
+}
+
+div.container {
+  width:550px;
+  margin: 40px 0 50px 260px;
+}
+
+img#logo {
+  height: 69px;
+}
+
+p a {
+  color: black;
+}
