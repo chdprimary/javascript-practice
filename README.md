@@ -1,6 +1,6 @@
 # A brief log of concepts as I learn them:
 <br>
-- [x] Watched Douglas Crockford's Google Tech Talk **Javascript: The Good Parts**
+- [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 <br>
 
 ###Professional Javascript for Web Developers:
