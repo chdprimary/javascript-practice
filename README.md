@@ -139,6 +139,7 @@ k   delete <object.prop>
     Object.seal(<obj>) - not as harsh as freeze()
       freeze and seal will improve performance when they are optimized in future
       will also be useful when writing frameworks / libraries so user cant break your code
+      freeze and seal are examples of "object hardening"
     Object.keys(<obj>) - returns all enumerable props in order a for..in would traverse them
     <arr>.some()
     <arr>.filter(<callback>);
@@ -167,3 +168,18 @@ k   delete <object.prop>
 
 - regexp - word boundaries \b, positive lookaheads, OR operator, [abc] (any of a b or c)
 
+###Crockford's JS Good Parts
+- global variables are the worst thing ever because of identifier collision (all compilation units of proj share namespace)
+  - use closures to avoid this
+    - closure: outer function which basically acts as a containing block to define local variables. When outer function is called, the inner function is called immediately. The inner function has access to all declarations in outer function.
+    - syntax is function(){ _declarations_ ... return _inner function_ }();
+- use strict mode
+- use === and !==, _never_ use == or !=
+- use semicolons explicitly
+- use right-sided curly braces
+- be aware that forgetting `new` when constructing will cause problems
+- be aware that you probably shouldn't ever have to use `eval()`
+- be aware that the + operator can cause sneaky issues because of it's dual functionality
+- be aware that all numbers in JS are floating-point and floating-points aren't exact 
+  - (0.1 + 0.2 === 0.3) //false
+- use JSLint as often as possible
