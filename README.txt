@@ -1,17 +1,6 @@
 # javascript-practice
 Learning the JavaScript for a great much win.
 
-advice:
-  type out everything
-  keep brief log of concepts
-  nothing works the first time.
-  everyone googles things.
-
-Javascript for Cats!:
-  functions return 'undefined' by default
-  variables / arrays
-  callbacks 
-
 Professional Javascript for Web Developers:
   EMCA-262 = ECMAScript
   Latest version is ECMAScript 6
