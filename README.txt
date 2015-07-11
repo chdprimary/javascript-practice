@@ -1,5 +1,4 @@
-# javascript-practice
-Learning the JavaScript for a great much win.
+Brief log of the concepts I come across as I learn:
 
 Professional Javascript for Web Developers:
   EMCA-262 = ECMAScript
