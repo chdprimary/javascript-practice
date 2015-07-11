@@ -18,7 +18,7 @@ Book: Professional Javascript for Web Developers:
 		Standards or Almost-standards mode	
 
 Language Basics:
-	everything is case sensitive
+	everything is case sensitive 
 	c style comments
 	valid without semicolons, semicolon recomm.
 	"use strict"; at beginning of <script> or function
