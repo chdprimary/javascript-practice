@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Image Slider</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="slider.js"></script>
+	</head>
+	<body>		
+		<div class="slider">
+			<ul>
+				<li><img src="img/1.png"></li>
+				<li><img src="img/2.png"></li>
+				<li><img src="img/3.png"></li>
+				<li><img src="img/4.png"></li>
+			</ul>
+		</div>
+		<div class="container">
+			<button id="slide-prev" style="float:left;width:50%;height:100%;">Previous</button>
+			<button id="slide-next" style="float:right;width:50%;height:100%;">Next</button>
+		</div>
+		<script type="text/javascript">
+			var sliders = [];
+			$('.slider').each(function() {
+				sliders.push(new Slider(this));
+			})
+			var prev_button = document.getElementById('slide-prev');
+			var next_button = document.getElementById('slide-next');
+
+			prev_button.addEventListener('click',function() {
+				sliders[0].goToPrev();
+			});
+
+			next_button.addEventListener('click',function() {
+				sliders[0].goToNext();
+			});			
+		</script>
+	</body>
+</html>

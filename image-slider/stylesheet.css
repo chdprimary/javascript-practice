@@ -1,0 +1,21 @@
+.slider {
+	width:400px; height: 300px;
+	overflow:hidden;
+}
+
+.container {
+	width:400px; height: 50px;
+}
+
+.slider > ul {
+	position:relative;
+	transition:0.5 left;
+
+	list-style:none;
+	margin:0;padding:0;
+}
+
+.slider > ul > li {
+	float: left;
+	width:400px;height:300px;
+}
