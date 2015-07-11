@@ -2,6 +2,7 @@
 <br>
 - [x] Watched Douglas Crockford's Google Tech Talk **Javascript: The Good Parts**
 <br>
+
 ###Professional Javascript for Web Developers:
 
   - EMCA-262 = ECMAScript
