@@ -3,10 +3,6 @@
 	overflow:hidden;
 }
 
-.container {
-	width:400px; height: 50px;
-}
-
 .slider > ul {
 	position:relative;
 	transition:0.5 left;
@@ -18,4 +14,18 @@
 .slider > ul > li {
 	float: left;
 	width:400px;height:300px;
+}
+
+.container {
+	width:400px; height: 50px;
+}
+
+#slide-prev {
+	float:left;
+	width:50%;height:100%;
+}
+
+#slide-next {
+	float:right;
+	width:50%;height:100%;
 }

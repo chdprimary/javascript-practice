@@ -16,14 +16,16 @@
 			</ul>
 		</div>
 		<div class="container">
-			<button id="slide-prev" style="float:left;width:50%;height:100%;">Previous</button>
-			<button id="slide-next" style="float:right;width:50%;height:100%;">Next</button>
+			<button id="slide-prev">Previous</button>
+			<button id="slide-next">Next</button>
 		</div>
 		<script type="text/javascript">
 			var sliders = [];
-			$('.slider').each(function() {
+
+			$('.slider').each(function(){
 				sliders.push(new Slider(this));
-			})
+			});
+
 			var prev_button = document.getElementById('slide-prev');
 			var next_button = document.getElementById('slide-next');
 
@@ -33,7 +35,7 @@
 
 			next_button.addEventListener('click',function() {
 				sliders[0].goToNext();
-			});			
+			});		
 		</script>
 	</body>
 </html>

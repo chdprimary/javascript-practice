@@ -1,4 +1,5 @@
 var Slider = function() { this.initialize.apply(this,arguments); }
+
 Slider.prototype = {
 	initialize: function(slider) {
 		this.ul = slider.children[0];
