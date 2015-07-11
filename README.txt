@@ -23,7 +23,7 @@ Professional Javascript for Web Developers:
 	place at end of <body> to load entire page first
 	<noscript> executed when browser doesn't support JavaScript or JS is turned off
 	In XHTML <! [CDATA[ ... ]]> indicates areas of free-form text not intended to be parsed
-	Include as much JS as possible using external files
+	Include as much JS as possible using external files 
 	Document modes for browsers
 		Quirks mode
 		Standards or Almost-standards mode	
