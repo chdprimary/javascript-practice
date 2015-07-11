@@ -1,8 +1,8 @@
 # A brief log of concepts as I learn them:
 <br>
-###Professional Javascript for Web Developers:
-
 - [x] Watched Douglas Crockford's Google Tech Talk **Javascript: The Good Parts**
+<br>
+###Professional Javascript for Web Developers:
 
   - EMCA-262 = ECMAScript
   - Latest version is ECMAScript 6
