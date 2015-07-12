@@ -1,5 +1,5 @@
 #TODO:
-- [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
+- [x] Watch Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [ ] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
 - [ ] Rewrite lodash.js without looking at source
