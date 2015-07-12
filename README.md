@@ -9,6 +9,11 @@
   - [ ] <a href="http://www.wintellect.com/devcenter/nstieglitz/5-great-features-in-es6-harmony">ES6 Overview</a>
   - [ ] <a href="https://lingohub.com/blogs/2014/11/brace-future-coming-es6-atscript-angular-2-0/">ES6 Overview & Angular 2</a>
   - [ ] Watch Douglas Crockford's lecture on <a href="http://bdadam.com/blog/video-douglas-crockford-about-the-new-good-parts.html">The Better Parts</a> on ES6 
+- [ ] Finish reading <a href="http://watchandcode.com/courses/eloquent-javascript-the-annotated-version/lectures/201913">Eloquent JavaScript</a>
+- [ ] Explore the material on <a href="http://jstherightway.org/">Javascript: The Right Way</a>
+- [ ] Continue practicing on <a href="http://www.codewars.com/users/chdprimary/">CodeWars</a>
+- [ ] Augment and explore JS DOM amnipulation examples on <a href="codepen.io">Codepen</a>
+  - [ ] Like <a href="http://codepen.io/ehermanson/pen/KwKWEv">this</a> or <a href="http://codepen.io/shadeed/pen/GJQrMo">this</a> or <a href="http://codepen.io/shadeed/pen/rVpXmB">this.</a>
 - [ ] Contribute to an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
   - [ ] <a href="https://guides.github.com/activities/contributing-to-open-source/">Contributing to Open Source on GitHub</a>
 - [ ] Read <a href="http://www.amazon.com/gp/product/059680279X">High Performance JavaScript</a>
