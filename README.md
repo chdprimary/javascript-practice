@@ -1,5 +1,4 @@
 # A brief log of concepts as I learn them:
-<br>
 - [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [ ] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [ ] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
