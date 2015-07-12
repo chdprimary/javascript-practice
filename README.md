@@ -181,5 +181,5 @@ k   delete <object.prop>
 - be aware that you probably shouldn't ever have to use `eval()`
 - be aware that the + operator can cause sneaky issues because of it's dual functionality
 - be aware that all numbers in JS are floating-point and floating-points aren't exact 
-  - (0.1 + 0.2 === 0.3) //false
+  - `(0.1 + 0.2 === 0.3) //false`
 - use JSLint as often as possible
