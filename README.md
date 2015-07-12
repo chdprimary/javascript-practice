@@ -1,6 +1,20 @@
 # A brief log of concepts as I learn them:
 <br>
 - [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
+- [ ] Add cards for major JS global object functions to Anki for spaced repetition memorization
+- [ ] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
+- [ ] Rewrite lodash.js without looking at source
+- [ ] Experiment with ES6
+  - [ ] <a href="https://babeljs.io/">Babel.js</a>
+  - [ ] <a href="http://es6-features.org/">ECMAScript6 Review & Comparison</a>
+  - [ ] <a href="http://www.wintellect.com/devcenter/nstieglitz/5-great-features-in-es6-harmony">ES6 Overview</a>
+  - [ ] <a href="https://lingohub.com/blogs/2014/11/brace-future-coming-es6-atscript-angular-2-0/">ES6 Overview & Angular 2</a>
+  - [ ] Watch Douglas Crockford's lecture on <a href="http://bdadam.com/blog/video-douglas-crockford-about-the-new-good-parts.html">The Better Parts</a> on ES6 
+- [ ] Contribute to an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
+  - [ ] <a href="https://guides.github.com/activities/contributing-to-open-source/">Contributing to Open Source on GitHub</a>
+- [ ] Read <a href="http://www.amazon.com/gp/product/059680279X">High Performance JavaScript</a>
+- [ ] Read <a href="http://www.amazon.com/gp/product/098478280X">Cracking the Coding Interview</a>
+- [ ] Go through <a href="https://codility.com/programmers/">Codility's course for employment-seeking programmers</a>
 <br>
 
 ###Professional Javascript for Web Developers:
