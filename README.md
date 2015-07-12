@@ -1,4 +1,4 @@
-# A brief log of concepts as I learn them:
+#TODO:
 - [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [ ] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
@@ -21,6 +21,7 @@
 - [ ] Go through <a href="https://codility.com/programmers/">Codility's course for employment-seeking programmers</a>
 <br>
 
+# A brief log of concepts as I learn them:
 ###Professional Javascript for Web Developers:
 
   - EMCA-262 = ECMAScript
