@@ -1,7 +1,7 @@
 # A brief log of concepts as I learn them:
 - [x] Watched Douglas Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [ ] Add cards for major JS global object functions to Anki for spaced repetition memorization
-- [ ] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
+- [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
 - [ ] Rewrite lodash.js without looking at source
 - [ ] Experiment with ES6
   - [ ] <a href="https://babeljs.io/">Babel.js</a>
@@ -201,3 +201,44 @@ k   delete <object.prop>
 - be aware that all numbers in JS are floating-point and floating-points aren't exact 
   - `(0.1 + 0.2 === 0.3) //false`
 - use JSLint as often as possible
+
+###Airbnb JavaScript Style Guide
+- Don't use `var item = new Object()`
+  - Instead use object literal notation, or define a constructor, or use Object.create()
+- When you access a primitive type you work directly on its value, when you access a complex type you work on a reference to its value.
+- Function expressions can be anonymous, named, or IIFE
+- Function statement aka declaration is the same as an expression, minus the `var <ident> = `
+- Function expressions are preferred over function declarations, apparently.
+- Use dot notation when accessing properties. If the property is in a var, use brackets instead.
+- Always use `var`
+- Assign variables at the top of their scope. This avoiding issues with variable hoisting.
+- Assignments do not get hoisted to the top of their scope. Only declarations do.
+- "Soft tab" means the 'tab' is actually composed of spaces.
+- A single leading underscore usually denotes that a property is private.
+- Named function expressions are better than unnamed ones.
+- Assign methods to prototype object, don't overwrite it with a new object
+  ```javascript
+  function Jedi() {
+    console.log('new jedi');
+  }
+  
+  // bad
+  Jedi.prototype = {
+    fight: function fight() {
+      console.log('fighting');
+    },
+
+    block: function block() {
+      console.log('blocking');
+    }
+  };
+  
+  // good
+  Jedi.prototype.fight = function fight() {
+    console.log('fighting');
+  };
+  
+  Jedi.prototype.block = function block() {
+    console.log('blocking');
+  };
+  ```
