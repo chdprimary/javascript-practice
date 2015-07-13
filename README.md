@@ -8,7 +8,8 @@
 - [ ] Continue practicing on <a href="http://www.codewars.com/users/chdprimary/">CodeWars</a>
 - [ ] Augment and explore JS DOM manipulation examples on <a href="codepen.io">Codepen</a>
   - [ ] Like <a href="http://codepen.io/ehermanson/pen/KwKWEv">this</a> or <a href="http://codepen.io/shadeed/pen/GJQrMo">this</a> or <a href="http://codepen.io/shadeed/pen/rVpXmB">this.</a>
-- [ ] Contribute to an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
+- [ ] Read / comprehend the code for an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
+- [ ] For that matter, contribute to an open source project by helping resolve its open issues
   - [ ] <a href="https://guides.github.com/activities/contributing-to-open-source/">Contributing to Open Source on GitHub</a>
 - [ ] Experiment with ES6
   - [ ] <a href="https://babeljs.io/">Babel.js</a>
@@ -192,6 +193,7 @@ k   delete <object.prop>
   - use closures to avoid this
     - closure: outer function which basically acts as a containing block to define local variables. When outer function is called, the inner function is called immediately. The inner function has access to all declarations in outer function.
     - syntax is function(){ _declarations_ ... return _inner function_ }();
+    - Or use IIFEs (immediately-invoked function expressions)
 - use strict mode
 - use === and !==, _never_ use == or !=
 - use semicolons explicitly
