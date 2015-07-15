@@ -48,15 +48,44 @@ function difference(array, values) {
 		values = [];
 	}
 
-	/* includes() is part of ES7 proposal. oops.
+	/* includes() is part of ES7 proposal, oops.
 	return array.filter(function(c) {
 		return !values.includes(c);
 	});
 	*/
 
 	return array.filter(function(c) {
-		return values.forEach(function(curr) {
-			return (curr === c) ? false : true
+		//Step through every value in values
+		//if c is encountered, we return false to filter()
+		var keep = true;
+		values.forEach(function(curr) {
+			if (curr === c) { keep = false; }
 		});
+		return keep;
 	});
 }
+
+function drop(array, n) {
+	"use strict";
+
+	if (n === undefined) {
+		n = 1;
+	}
+
+	return array.slice(n);
+}
+
+function dropRight(array, n) {
+	"use strict";
+
+	if (n === undefined) {
+		n = 1;
+	}
+	
+	if (n >= array.length) {
+		return [];
+	} else {
+		return array.slice(0,array.length-n);	
+	}
+}
+
