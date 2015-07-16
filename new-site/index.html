@@ -101,6 +101,18 @@
 				{{ comment.body }}
 			</span>
 		</div>
+		<br>
+
+		<form ng-submit="addComment()">
+			<h3>
+				Add a Comment:
+			</h3>	
+			<input class="form-control" placeholder="Comment" ng-model="commentBody">
+			<br>
+			<button class="btn btn-default" style="float:right;" type="submit">
+				Submit
+			</button>
+		</form>	
 	</script>
 </body>
 </html>
