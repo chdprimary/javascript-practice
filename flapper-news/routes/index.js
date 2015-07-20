@@ -62,14 +62,14 @@ router.param('comment', function(req, res ,next, id) {
 			return next(new Error('can\'t find comment')); 
 		}
 
-		req.post.comments[0] = comment;
+		req.comment = comment;
 		return next();
 	});
 });
 
 // GET to '/posts/:post' (get a single post and its comments)
 router.get('/posts/:post', function(req, res) {
-	req.post.populate('comment', function(err, post) {
+	req.post.populate('comments', function(err, post) {
 		if (err) {
 			return next(err);
 		}
@@ -111,7 +111,7 @@ router.post('/posts/:post/comments', function(req, res, next) {
 
 // PUT to '/posts/:post/comments/:comment/upvote' (upvote a particular comment)
 router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
-	req.post.comments[0].upvote(function(err, comment) {
+	req.comment.upvote(function(err, comment) {
 		if (err) {
 			return next(err);
 		}

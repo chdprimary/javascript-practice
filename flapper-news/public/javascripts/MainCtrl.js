@@ -4,22 +4,19 @@
 
 	angular
 		.module('flapperNews')
-		.controller('MainCtrl', ['$scope','posts', MainCtrl]);
+		.controller('MainCtrl', ['$scope', 'posts', MainCtrl]);
 
-	function MainCtrl($scope,posts) {
+	function MainCtrl($scope, posts) {
 		$scope.posts = posts.posts;
-		$scope.upvotePost = posts.upvotePost;
+		$scope.upvotePost = function(post) {
+			posts.upvote(post);
+		};
 
 		$scope.addPost = function() {
 			if($scope.postTitle) {
-				$scope.posts.push({
-					title: $scope.postTitle, 
-					link: $scope.postLink, 
-					upvotes: 0,
-					comments: [
-						{author: 'Joey', body:'Your post sucks', upvotes: 0},
-						{author: 'Chandelier29', body:'Great idea but everything is wrong!', upvotes: 3}
-					]
+				posts.create({
+					title: $scope.postTitle,
+					link: $scope.postLink
 				});
 				$scope.postTitle = '';
 				$scope.postLink = '';

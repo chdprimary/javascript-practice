@@ -4,22 +4,28 @@
 
 	angular
 		.module('flapperNews')
-		.controller('PostCommCtrl', ['$scope','$stateParams','posts', PostCommCtrl]); 
+		.controller('PostCommCtrl', ['$scope', 'posts', 'post', PostCommCtrl]); 
 
-	function PostCommCtrl($scope,$stateParams,posts) {
-		$scope.post = posts.posts[$stateParams.id];
-		$scope.upvotePost = posts.upvotePost;	
-		// debugger;
+	function PostCommCtrl($scope, posts, post) {
+		$scope.post = post;
+		$scope.upvotePost = function(post) {
+			posts.upvote(post);
+		};
+		$scope.upvoteComment = function(comment) {
+			posts.upvoteComment(post, comment);
+		};	
 
 		$scope.addComment = function() {
 			if($scope.commentBody) {
-				$scope.post.comments.push(
+				posts.addComment(post._id, 
 					{
 						author: 'user',
 						body: $scope.commentBody,
 						upvotes: 0
 					}
-				);
+				).success(function(comment) {
+					$scope.post.comments.push(comment);
+				});
 				$scope.commentBody = '';
 			}
 		}

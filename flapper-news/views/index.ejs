@@ -40,7 +40,7 @@
 				{{ post.title }}
 			</span>
 			<span>
-				<a style="font-size:12px;" href="#/post-comments/{{posts.indexOf(post)}}">
+				<a style="font-size:12px;" href="#/post-comments/{{post._id}}">
 					Comments
 				</a>
 			</span>
@@ -89,7 +89,7 @@
 			</h3>
 		</div>
 		<div style="margin-bottom:5px; -webkit-user-select:none;" ng-repeat="comment in post.comments | orderBy: '-upvotes'">
-			<span class="glyphicon glyphicon-arrow-up" style="cursor:pointer; " title="upvote" ng-click="upvotePost(comment)"></span>
+			<span class="glyphicon glyphicon-arrow-up" style="cursor:pointer; " title="upvote" ng-click="upvoteComment(comment)"></span>
 			<span style="display:inline-block; width:2em; text-align: center;">
 				{{ comment.upvotes }} 
 			</span>

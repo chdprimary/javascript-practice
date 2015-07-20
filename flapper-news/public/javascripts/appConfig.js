@@ -4,7 +4,7 @@
 
 	angular
 		.module('flapperNews')
-		.config(['$stateProvider','$urlRouterProvider',appConfig]);
+		.config(['$stateProvider', '$urlRouterProvider', appConfig]);
 
 	function appConfig($stateProvider, $urlRouterProvider) {
 		$stateProvider
@@ -13,7 +13,12 @@
 				views: {
 					'home': {
 						templateUrl: '/home.html',
-						controller: 'MainCtrl'
+						controller: 'MainCtrl',
+						resolve: {
+							postPromise: ['posts', function(posts) {
+								return posts.getAll();
+							}]
+						}
 					}
 				}
 			})
@@ -22,7 +27,12 @@
 				views: {
 					'post-comments': {
 						templateUrl: '/post-comments.html',
-						controller: 'PostCommCtrl'
+						controller: 'PostCommCtrl',
+						resolve: {
+							post: ['$stateParams', 'posts', function($stateParams, posts) {
+								return posts.get($stateParams.id);
+							}]
+						}
 					}
 				}
 			});
