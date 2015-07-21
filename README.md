@@ -254,3 +254,8 @@ k   delete <object.prop>
     console.log('blocking');
   };
   ```
+###Interesting Google Trends
+- Be aware that the search terms may differ slightly from what's listed below, in order to improve accuracy
+- Comparison of search interest in tutorials for [Angular, Node, MongoDB, Javascript, and ES6](http://goo.gl/1Wq3E6)
+- Comparison of search interest in tutorials for [MongoDB, Redis, SQL Server, MySQL, sqlite](http://goo.gl/5sd3FT)
+- Comparison of search interest in tutorials for [Javascript, Python, Java, C#, PHP](http://goo.gl/oru8s7)
