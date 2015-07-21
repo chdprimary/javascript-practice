@@ -7,6 +7,9 @@
 - [x] TUTORIAL: Complete Scotch.io's [tutorial on building a RESTful API with MEAN (minus Angular)](https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4)
 - [x] TUTORIAL: Complete Scotch.io's [tutorial on building a simple Todo SPA with MEAN](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular) (code is in todo-app folder above)
 - [x] TUTORIAL: Complete Thinkster.io's [tutorial on building a two-page webapp with MEAN](https://thinkster.io/mean-stack-tutorial/) (finished everything but the passport authentication section at the end; code is in flapper-news folder above)
+- [x] Read about [Express Middleware] (http://expressjs.com/guide/using-middleware.html)
+- [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
+- [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
 - [ ] Explore the material on [this SO post about AngularJS learning resources](http://stackoverflow.com/questions/14333857/how-to-master-angularjs)
 - [ ] Rewrite <a href="https://lodash.com/">lodash.js</a> without looking at source
 - [ ] Finish reading <a href="http://watchandcode.com/courses/eloquent-javascript-the-annotated-version/lectures/201913">Eloquent JavaScript</a>
