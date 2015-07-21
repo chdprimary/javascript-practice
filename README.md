@@ -2,6 +2,7 @@
 - [x] Watch Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [x] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
+- [x] Opinion Piece: [Why you should never, ever, ever use MongoDB](http://cryto.net/~joepie91/blog/2015/07/19/why-you-should-never-ever-ever-use-mongodb/)
 - [ ] Rewrite <a href="https://lodash.com/">lodash.js</a> without looking at source
 - [ ] Finish reading <a href="http://watchandcode.com/courses/eloquent-javascript-the-annotated-version/lectures/201913">Eloquent JavaScript</a>
 - [ ] Explore the material on <a href="http://jstherightway.org/">Javascript: The Right Way</a>
