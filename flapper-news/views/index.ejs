@@ -11,7 +11,7 @@
 	<script src="javascripts/MainCtrl.js"></script>
 	<script src="javascripts/PostCommCtrl.js"></script>
 </head>
-<body ng-app="flapperNews">
+<body style="overflow-x:hidden;" ng-app="flapperNews">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div ui-view="home"></div>
@@ -21,16 +21,16 @@
 
 	<script type="text/ng-template" id="/home.html">
 		<div class="page-header">
-			<h1 style="text-align:center;">
-				<a style="text-decoration:none;" href="#/home">
+			<h1>
+				<a style="color: #666;" href="#/home">
 					Flapper News
 				</a>
 			</h1>
 		</div>
 
 		<div style="margin-bottom:5px;-webkit-user-select:none;" ng-repeat="post in posts | orderBy: '-upvotes'">
-			<span class="glyphicon glyphicon-arrow-up" style="cursor:pointer; " title="upvote" ng-click="upvotePost(post)"></span>
-			<span style="display:inline-block; width:2em; text-align: center;"> 
+			<span class="glyphicon glyphicon-thumbs-up" style="cursor:pointer; " title="upvote" ng-click="upvotePost(post)"></span>
+			<span style="display:inline-block; min-width:2em; text-align: center;"> 
 				{{ post.upvotes }} 
 			</span>
 			<a ng-show="post.link" href="{{post.link}}" target="_blank">
@@ -62,16 +62,16 @@
 	
 	<script type="text/ng-template" id="/post-comments.html">
 		<div class="page-header">
-			<h1 style="text-align:center;">
-				<a style="text-decoration:none;" href="#/home">
+			<h1>
+				<a style="color: #666;" href="#/home">
 					Flapper News
 				</a>
 			</h1>
 		</div>
 
 		<div style="margin-bottom:5px;-webkit-user-select:none;">
-			<span class="glyphicon glyphicon-arrow-up" style="cursor:pointer; " title="upvote" ng-click="upvotePost(post)"></span>
-			<span style="display:inline-block; width:2em; text-align: center;">
+			<span class="glyphicon glyphicon-thumbs-up" style="cursor:pointer; " title="upvote" ng-click="upvotePost(post)"></span>
+			<span style="display:inline-block; min-width:2em; text-align: center;">
 				{{ post.upvotes }} 
 			</span>
 			<a ng-show="post.link" href="{{post.link}}" target="_blank">
@@ -89,8 +89,8 @@
 			</h3>
 		</div>
 		<div style="margin-bottom:5px; -webkit-user-select:none;" ng-repeat="comment in post.comments | orderBy: '-upvotes'">
-			<span class="glyphicon glyphicon-arrow-up" style="cursor:pointer; " title="upvote" ng-click="upvoteComment(comment)"></span>
-			<span style="display:inline-block; width:2em; text-align: center;">
+			<span class="glyphicon glyphicon-thumbs-up" style="cursor:pointer; " title="upvote" ng-click="upvoteComment(comment)"></span>
+			<span style="display:inline-block; min-width:2em; text-align: center;">
 				{{ comment.upvotes }} 
 			</span>
 			<span>

@@ -33,7 +33,7 @@ router.post('/posts', function(req, res, next) {
 	});
 });
 
-// if a post ID is in our query string, find the post and attach it to 'req'
+// if a post ID is in our route, find the post and attach it to 'req'
 router.param('post', function(req, res ,next, id) {
 	var query = Post.findById(id);
 
@@ -50,7 +50,7 @@ router.param('post', function(req, res ,next, id) {
 	});
 });
 
-// if a comment ID is in our query string, find the comment and attach it to 'req'
+// if a comment ID is in our route, find the comment and attach it to 'req'
 router.param('comment', function(req, res ,next, id) {
 	var query = Comment.findById(id);
 
