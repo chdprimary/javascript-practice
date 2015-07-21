@@ -1,0 +1,23 @@
+                                                                   todo-app/todos (MongoDB) (Robomongo)
+                                 +Express                               |
+            ./public ---------- Node.js --------- (mongoose) -------- Mongod
+(github)____/ index.html ______/ server.js
+            \ core.js              |
+(CDN)_______/ AngularJS            |
+            \ Bootstrap            |
+                                   |
+                                   *
+(server)
+------------------------------ port 8080 ---------------------------------------------
+(client)
+                                   *
+                                   |
+                                   |
+                                Chrome
+                                  V8
+                                   |
+                                   |
+                                Webpage
+                                   |
+                                   |
+                                  YOU
