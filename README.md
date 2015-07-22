@@ -9,6 +9,7 @@
 - [x] TUTORIAL: Complete Thinkster.io's [tutorial on building a two-page webapp with MEAN](https://thinkster.io/mean-stack-tutorial/) (finished everything but the passport authentication section at the end; code is in flapper-news folder above)
 - [x] Read about [Express Middleware] (http://expressjs.com/guide/using-middleware.html)
 - [x] Gain basic familiarity in using [Node's built-in debugger](https://nodejs.org/api/debugger.html) and [Node Inspector](https://github.com/node-inspector/node-inspector) to debug server-side javascript
+- [x] Learn a bit about [Bower](https://scotch.io/tutorials/manage-front-end-resources-with-bower)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
 - [ ] Explore the material on [this SO post about AngularJS learning resources](http://stackoverflow.com/questions/14333857/how-to-master-angularjs)
@@ -21,6 +22,11 @@
 - [ ] Read / comprehend the code for an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
 - [ ] For that matter, contribute to an open source project by helping resolve its open issues
   - [ ] <a href="https://guides.github.com/activities/contributing-to-open-source/">Contributing to Open Source on GitHub</a>
+- [ ] Learn a bit about Vagrant (Keep development environments in sync)
+- [ ] Learn a bit about Docker (Deploy your app to run on ANY Linux environment)
+- [ ] Learn a bit about [Electron](http://electron.atom.io/) (Build desktop apps with web app technologies)
+- [ ] Learn a bit about Heroku (Build AND run applications entirely in the cloud)
+- [ ] [Deploy an application to AWS EC2](https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1)
 - [ ] Experiment with ES6
   - [ ] <a href="https://babeljs.io/">Babel.js</a>
   - [ ] <a href="http://es6-features.org/">ECMAScript6 Review & Comparison</a>
