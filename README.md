@@ -10,6 +10,10 @@
 - [x] Read about [Express Middleware] (http://expressjs.com/guide/using-middleware.html)
 - [x] Gain basic familiarity in using [Node's built-in debugger](https://nodejs.org/api/debugger.html) and [Node Inspector](https://github.com/node-inspector/node-inspector) to debug server-side javascript
 - [x] Learn a bit about [Bower](https://scotch.io/tutorials/manage-front-end-resources-with-bower)
+- [x] Learn a bit about [JSONP](https://en.wikipedia.org/wiki/JSONP)
+- [x] Learn a bit about [IIFEs (immediately-invoked function expressions)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+- [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
+- [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
 - [ ] Explore the material on [this SO post about AngularJS learning resources](http://stackoverflow.com/questions/14333857/how-to-master-angularjs)
@@ -33,6 +37,8 @@
   - [ ] <a href="http://www.wintellect.com/devcenter/nstieglitz/5-great-features-in-es6-harmony">ES6 Overview</a>
   - [ ] <a href="https://lingohub.com/blogs/2014/11/brace-future-coming-es6-atscript-angular-2-0/">ES6 Overview & Angular 2</a>
   - [ ] Watch Douglas Crockford's lecture on <a href="http://bdadam.com/blog/video-douglas-crockford-about-the-new-good-parts.html">The Better Parts</a> on ES6 
+- [ ] Make a presentation in Reveal.js!
+- [ ] Refer to [this site](http://uptodate.frontendrescue.org/) for more front-end news resources
 - [ ] Read <a href="http://www.amazon.com/gp/product/059680279X">High Performance JavaScript</a>
 - [ ] Read <a href="http://www.amazon.com/gp/product/098478280X">Cracking the Coding Interview</a>
 - [ ] Go through <a href="https://codility.com/programmers/">Codility's course for employment-seeking programmers</a>
