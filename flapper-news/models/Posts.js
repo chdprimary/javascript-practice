@@ -12,4 +12,4 @@ PostSchema.methods.upvote = function(callback) {
 	this.save(callback);
 };
 
-mongoose.model('Post',PostSchema);
+mongoose.model('Post', PostSchema);

@@ -1,16 +1,69 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
 var Post = mongoose.model('Post');
 var Comment = mongoose.model('Comment');
+var User = mongoose.model('User');
+
+var secret = "forsalebabyshoesneverworn";
 
 // GET home page.
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res) {
+ 	res.render('index', { title: 'Express' });
+});
+
+// GET to '/setup' (adds test user to database)
+router.get('/setup', function(req, res) {
+	var nick = new User({
+		username: "Nick Offerman",
+  		password: "password",
+  		admin: true
+  	});
+
+  	nick.save(function(err) {
+		if (!err) {
+			console.log('Nick saved succesfully!');
+			res.json({ success: true });
+  		}
+  	});
+});
+
+// GET to '/users' (get a list of all users)
+router.get('/users', function(req, res) {
+	User.find(function(err, users) {
+		res.json(users);
+	});
+});
+
+// POST to '/authenticate' (tries to authenticate based on provided login information)
+router.post('/authenticate', function(req, res) {
+	User.findOne({
+		username: req.body.username
+	}, function(err, user) {
+		if (err) throw err;
+
+		if (!user || user.password != req.body.password) {
+			res.json({
+				success: false, 
+				message: "Authentication error. Please try again." 
+			});
+		} else {
+			var token = jwt.sign(user, secret, {
+				expiresInMinutes: 1440 // 24 hours
+			});
+
+			res.json({
+				success: true,
+				message: "WOULD YOU LIKE TOKEN",
+				token: token
+			});
+		}
+	});
 });
 
 // GET to '/posts' (get all posts)
-router.get('/posts', function(req, res, next) {
+router.get('/posts', function(req, res) {
 	Post.find(function(err, posts) {
 		if (err) {
 			return next(err);
@@ -21,7 +74,7 @@ router.get('/posts', function(req, res, next) {
 });
 
 // POST to '/posts' (create a post)
-router.post('/posts', function(req, res, next) {
+router.post('/posts', function(req, res) {
 	var post = new Post(req.body);
 
 	post.save(function(err, post) {
@@ -34,7 +87,7 @@ router.post('/posts', function(req, res, next) {
 });
 
 // if a post ID is in our route, find the post and attach it to 'req'
-router.param('post', function(req, res ,next, id) {
+router.param('post', function(req, res, next, id) {
 	var query = Post.findById(id);
 
 	query.exec(function (err, post) {

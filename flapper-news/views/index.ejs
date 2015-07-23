@@ -10,12 +10,14 @@
 	<script src="javascripts/posts.js"></script>
 	<script src="javascripts/MainCtrl.js"></script>
 	<script src="javascripts/PostCommCtrl.js"></script>
+	<script src="javascripts/LoginController.js"></script>
 </head>
 <body style="overflow-x:hidden;" ng-app="flapperNews">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div ui-view="home"></div>
 			<div ui-view="post-comments"></div>
+			<div ui-view="login"></div>
 		</div>
 	</div>
 
@@ -58,6 +60,11 @@
 				Submit
 			</button>
 		</form>		
+		<br>
+
+		<div>
+			<h2><a href="#/login">Login</a></h2>
+		</div>
 	</script>
 	
 	<script type="text/ng-template" id="/post-comments.html">
@@ -113,6 +120,22 @@
 				Submit
 			</button>
 		</form>	
+	</script>
+
+	<script type="text/ng-template" id="/login.html">
+		<form ng-submit="submitLogin()">
+			<h2>
+				Login
+			</h2>
+			<br>
+			<input class="form-control" placeholder="Username" ng-model="username">
+			<br>
+			<input class="form-control" placeholder="Password" ng-model="password">
+			<br>
+			<button class="btn btn-default" type="submit">
+				Submit
+			</button>
+		</form>
 	</script>
 </body>
 </html>

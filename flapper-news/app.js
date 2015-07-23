@@ -9,10 +9,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var postModel = require('./models/Posts');
 var commentsModel = require('./models/Comments');
+var userModel = require('./models/Users');
 
 // route modules
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 // configure 'app' ========================================================
 
@@ -27,7 +27,6 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // error handlers ----------------------------
 

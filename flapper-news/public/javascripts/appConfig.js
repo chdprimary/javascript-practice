@@ -35,6 +35,15 @@
 						}
 					}
 				}
+			})
+			.state('login', {
+				url: '/login',
+				views: {
+					'login': {
+						templateUrl: '/login.html',
+						controller: 'LoginController'
+					}
+				}
 			});
 
 		$urlRouterProvider.otherwise('home');
