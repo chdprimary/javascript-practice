@@ -12,6 +12,7 @@
 - [x] Learn a bit about [Bower](https://scotch.io/tutorials/manage-front-end-resources-with-bower)
 - [x] Learn a bit about [JSONP](https://en.wikipedia.org/wiki/JSONP)
 - [x] Learn a bit about [IIFEs (immediately-invoked function expressions)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+- [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ([...] you can use a closure anywhere that you might normally use an object with only a single method.)
 - [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
 - [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
