@@ -15,6 +15,7 @@
 - [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ([...] you can use a closure anywhere that you might normally use an object with only a single method.)
 - [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
 - [x] Read the article [Don't Be Scared of Functional Programming] (http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/)
+- [x] Learn a bit about isomorphic javascript
 - [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
