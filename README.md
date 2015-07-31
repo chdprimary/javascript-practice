@@ -16,6 +16,7 @@
 - [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
 - [x] Read the article [Don't Be Scared of Functional Programming] (http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/) [Functional programming means data is immutable (copy-updated) and stateless (no reliance on anything but the input arguments). Each function must accept arguments, must return something, and must use recursion instead of loops.]
 - [x] Learn a bit about isomorphic javascript
+- [x] Read about unit testing with [Jasmine](http://jasmine.github.io/2.3/introduction.html) (read up through section on Spies)
 - [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
