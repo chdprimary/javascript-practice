@@ -77,26 +77,36 @@
 		}
 
 		this.extractMax = function() {
-			var lastNode = this.arr[this.arr.length - 1];
-			var max = this.arr[1].val;
+			var lastNode;
+			var max;
 
-			// Overwrite 'root' with last (rightmost) node, remove last node
-			this.arr[1] = lastNode;
-			this.arr.pop();
+			if (!this.isEmpty()) {
+				lastNode = this.arr[this.arr.length - 1];
+				max = this.arr[1].val;
 
-			// Sift 'root' down to proper position
-			this.reheap(this.arr[1]);
+				// Overwrite 'root' with last (rightmost) node, remove last node
+				this.arr[1] = lastNode;
+				this.arr.pop();
 
-			// Return the original root value
-			return max;
+				// Sift 'root' down to proper position
+				if (!this.isEmpty()) {
+					this.reheap(this.arr[1]);
+				}
+
+				// Return the original root value
+				return max;
+			}
 		};
 
 		this.reheap = function(node) {
-			var left = node.left(this.arr);
-			var right = node.right(this.arr);
+			var left = undefined;
+			var right = undefined;
+
+			left = this.getExistingChildren(left, right, node)['left'];
+			right = this.getExistingChildren(left, right, node)['right'];
 
 			// While our node has a left or right child with a greater value, swap with that child
-			while ((node.hasLeftChild(this.arr) && node.val < left.val) || (node.hasRightChild(this.arr) && node.val < right.val)) {
+			while ((left !== undefined && node.val < left.val) || (right !== undefined && node.val < right.val)) {
 				if (node.right(this.arr).val > node.left(this.arr).val) {
 					this.swap(node.right(this.arr), node);
 				} else {
@@ -104,9 +114,25 @@
 				}
 
 				// Re-get left and right children after swap
-				left = node.left(this.arr);
-				right = node.right(this.arr);
+				left = this.getExistingChildren(left, right, node)['left'];
+				right = this.getExistingChildren(left, right, node)['right'];
 			}
+		};
+
+		this.getExistingChildren = function(left, right, node) {
+			if (node.hasLeftChild(this.arr)) {
+				left = node.left(this.arr);	
+			} else {
+				left = undefined;
+			}
+
+			if (node.hasRightChild(this.arr)) {
+				right = node.right(this.arr);
+			} else {
+				right = undefined;
+			}		
+
+			return {'left': left, 'right': right};
 		};
 
 		this.print = function(tag) {
@@ -122,6 +148,11 @@
 
 			console.log(printString);
 		};
-	};
 
+		this.isEmpty = function() {
+			return this.arr.every(function(c) {
+				return !c;
+			});
+		};
+	};
 })();
