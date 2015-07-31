@@ -17,6 +17,9 @@
 - [x] Read the article [Don't Be Scared of Functional Programming] (http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/) [Functional programming means data is immutable (copy-updated) and stateless (no reliance on anything but the input arguments). Each function must accept arguments, must return something, and must use recursion instead of loops.]
 - [x] Learn a bit about isomorphic javascript
 - [x] Read about unit testing with [Jasmine](http://jasmine.github.io/2.3/introduction.html) (read up through section on Spies)
+- [x] Learn a bit about [greedy algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm)
+- [x] Read [this article] on heaps & hash tables, implement a binary heap
+- [x] Read Steve Yegge's popular [Good Agile, Bad Agile](http://steve-yegge.blogspot.com/2006/09/good-agile-bad-agile_27.html) (more about Google's dev process circa 2006 than anything - takeaway is that you really only need a priority queue)
 - [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
@@ -30,6 +33,7 @@
 - [ ] Read / comprehend the code for an open source JS project on Github like <a href="https://github.com/hpneo/gmaps">GMaps</a>
 - [ ] For that matter, contribute to an open source project by helping resolve its open issues
   - [ ] <a href="https://guides.github.com/activities/contributing-to-open-source/">Contributing to Open Source on GitHub</a>
+- [ ] Learn a bit more about [isomorphic JavaScript](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 - [ ] Learn a bit about Vagrant (Keep development environments in sync)
 - [ ] Learn a bit about Docker (Deploy your app to run on ANY Linux environment)
 - [ ] Learn a bit about [Electron](http://electron.atom.io/) (Build desktop apps with web app technologies)
@@ -46,6 +50,11 @@
 - [ ] Read <a href="http://www.amazon.com/gp/product/059680279X">High Performance JavaScript</a>
 - [ ] Read <a href="http://www.amazon.com/gp/product/098478280X">Cracking the Coding Interview</a>
 - [ ] Go through <a href="https://codility.com/programmers/">Codility's course for employment-seeking programmers</a>
+- [ ] Read over some of the popular [Career Cup interview questions](http://www.careercup.com/page?sort=votes)
+- [ ] Read Steve Yegge's popular article on [getting a job with Google](http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html) (or a similar top tech company)
+- [ ] Go back over this [Big-O cheat sheet](http://bigocheatsheet.com/)
+- [ ] Try your hand at [TopCoder](https://www.topcoder.com/community/data-science/data-science-tutorials/) (start with these helper docs)
+- [ ] Finish the rest of your [Stanford Algorithms course](https://class.coursera.org/algo-005)
 <br>
 
 # A brief log of concepts as I learn them:
