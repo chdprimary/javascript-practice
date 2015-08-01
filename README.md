@@ -286,4 +286,6 @@ k   delete <object.prop>
 - Comparison of search interest in tutorials for [MongoDB, Redis, SQL Server, MySQL, sqlite](http://goo.gl/5sd3FT)
 - Comparison of search interest in tutorials for [Javascript, Python, Java, C#, PHP](http://goo.gl/oru8s7)
 
+# Misc Notes
 - Gulp & Grunt do pretty much the same thing: task automation for your project.
+- Code needs to balance readability, efficiency, and concision.
