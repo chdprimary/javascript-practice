@@ -85,10 +85,10 @@
     - local variable if **var** keyword is used in declaration and inside a block
     - global variable if var is omitted
       - not recommended, not allowed in strict mode: woo!
-    - 5 data types:
-      - undefined, null, boolean, number, string (and object)
+    - 5 primitive data types:
+      - undefined, null, boolean, number, string (object is a complex data type)
       - undefined:
-        var is declared but not initializeds
+        var is declared but not initialized
         never set anything explicitly to undefined
       - booleans:
         must be lowercase
