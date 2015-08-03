@@ -20,6 +20,7 @@
 - [x] Learn a bit about [greedy algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm)
 - [x] Read [this article](http://algosaur.us/data-structures-basics/) on heaps & hash tables, implement a binary heap
 - [x] Read Steve Yegge's popular [Good Agile, Bad Agile](http://steve-yegge.blogspot.com/2006/09/good-agile-bad-agile_27.html) (more about Google's dev process circa 2006 than anything - takeaway is that you really only need a priority queue)
+- [x] [Deploy an application to AWS EC2](https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1)
 - [ ] Read about Javascript unit and end-to-end testing technologies in [this SO answer](http://stackoverflow.com/a/680713/3888407)
 - [ ] Read about [JavaScript framework fatigue](http://www.allenpike.com/2015/javascript-framework-fatigue/)
 - [ ] Read about [Currying in JS](https://medium.com/@kevincennis/currying-in-javascript-c66080543528)
@@ -38,7 +39,6 @@
 - [ ] Learn a bit about Docker (Deploy your app to run on ANY Linux environment)
 - [ ] Learn a bit about [Electron](http://electron.atom.io/) (Build desktop apps with web app technologies)
 - [ ] Learn a bit about Heroku (Build AND run applications entirely in the cloud)
-- [ ] [Deploy an application to AWS EC2](https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1)
 - [ ] Experiment with ES6
   - [ ] <a href="https://babeljs.io/">Babel.js</a>
   - [ ] <a href="http://es6-features.org/">ECMAScript6 Review & Comparison</a>
