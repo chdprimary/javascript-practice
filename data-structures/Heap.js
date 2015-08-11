@@ -12,7 +12,6 @@
 			if (this.isRoot(arr)) {
 				return undefined;
 			} else {
-				debugger;
 				return arr[Math.floor((arr.indexOf(this)) / 2)];
 			}
 		};
