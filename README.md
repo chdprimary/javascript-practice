@@ -315,4 +315,4 @@ k   delete <object.prop>
 - DocBlockr helps with documentation
 - ```Ctrl+Shift+A+up/down``` Move a line of text up/down file
 - ```Ctrl+Shift+T``` opens custom terminal (cmder) at current file's directory
-- Use classic vim commands (h,j,k,l,gg,G,0,$,x,u,esc for insert mode toggle) with Sublime Text's vintage mode
+- Use classic vim commands (h,j,k,l,gg,G,0,$,x,u,i,a) with Sublime Text's vintage mode (hit esc to start vintage mode on a file)
