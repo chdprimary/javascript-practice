@@ -292,9 +292,22 @@ k   delete <object.prop>
 - Code needs to balance readability, efficiency, and concision.
 
 ###Sublime Text 2 "perfect workflow"
-- Ctrl+D selects next occurrence of word
-- Alt+F3 selects all occurrences of word
-- Ctrl+Shift+F brings up Find/Replace
-- Shift+RMB block/column selection
-- Ctrl+shift+L to place cursors in each selected line
-- Ctrl+I to bring up incremental search (finds next occurrence of a word you search)
+- ```Ctrl+D``` selects next occurrence of word
+- ```Alt+F3``` selects all occurrences of word
+- ```Ctrl+Shift+F``` brings up Find/Replace
+- ```Shift+RMB``` block/column selection
+- ```Ctrl+shift+L``` to place cursors in each selected line
+- ```Ctrl+I``` to bring up incremental search (finds next occurrence of a word you search)
+- ```Ctrl+Shift+P``` fuzzy searching super/everything menu
+- ```Ctrl+P``` fuzzy searching for project files
+- ```Ctrl+R``` fuzzy searching for symbols in current file 
+  - you can also just add an @ followed by the symbol to search for symbols in unopened files
+- ```Ctrl+Kb``` shows/hides project menu sidebar
+- one great thing about snippets is that they have tab insertion
+- can define own snippets easily under tools
+- ```Ctrl+fslash``` to toggle commenting
+- Emmett can do a lot of programmatic templating which is cool
+- ```Alt+Shift+num``` changes window layout
+- ```Ctrl+Alt+L``` SublimeLint file
+- ```Ctrl+Shift+E``` Find next lint error (info shown in status)
+- DocBlockr helps with documentation
