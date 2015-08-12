@@ -311,3 +311,5 @@ k   delete <object.prop>
 - ```Ctrl+Alt+L``` SublimeLint file
 - ```Ctrl+Shift+E``` Find next lint error (info shown in status)
 - DocBlockr helps with documentation
+- ```Ctrl+Shift+A+up/down``` Move a line of text up/down file
+- ```Ctrl+Shift+T``` opens custom terminal (cmder) at current file's directory
