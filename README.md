@@ -292,6 +292,7 @@ k   delete <object.prop>
 #Misc Notes
 - Gulp & Grunt do pretty much the same thing: task automation for your project.
 - Code needs to balance readability, efficiency, and concision.
+- Win+X is an amazing Windows shortcut
 
 ###Sublime Text 2 "perfect workflow"
 - ```Ctrl+D``` selects next occurrence of word
@@ -316,3 +317,4 @@ k   delete <object.prop>
 - ```Ctrl+Shift+A+up/down``` Move a line of text up/down file
 - ```Ctrl+Shift+T``` opens custom terminal (cmder) at current file's directory
 - Use classic vim commands (h,j,k,l,gg,G,0,$,x,u,i,a) with Sublime Text's vintage mode (hit esc to start vintage mode on a file)
+
