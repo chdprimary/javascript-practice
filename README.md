@@ -178,8 +178,9 @@
 - CSS resets and Normalize.css
 - Border takes thickness, type, color (e.g. 5px dashed #CEDDDD)
 - Border radius can bevel sharp edges (50% is circle)
-- Box-sizing: content-box is default, padding-box includes any padding in width/height, border-box includes padding AND border in width/height (works inwards instead of outwards)
-- 
+- Box sizing: content-box is default, padding-box includes any padding in width/height, border-box includes padding AND border in width/height (works inwards instead of outwards)
+- Float: left & right
+- Clear: left & right & both (clears floats)
 
 ###Codewars:
 ```javascript
