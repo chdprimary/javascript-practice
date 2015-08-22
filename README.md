@@ -161,6 +161,16 @@
 - `cursor`
 - `text-decoration`
 
+###HTML
+- ```div```: block level
+- ```span```: inline
+- ```h1-h6``` give *semantic* meaning, shouldn't be used solely for text size
+- Semantic difference between ```<strong>``` and ```<b>```, and ```<em>``` and ```i```
+- Now have ```header```, ```nav```, ```footer```, ```section```, ```article```, and ```aside``` for structual layout
+- ```article``` elements' content should be context-independent
+- encoded characters always start with a *&* and end with a *;*
+- ```a``` anchor tags are inline, but may actually enclose block level tags. Most inline tags cannot enclose block level tags.
+- 
 
 ###Codewars:
 ```javascript
