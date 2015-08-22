@@ -161,15 +161,24 @@
 - `cursor`
 - `text-decoration`
 
-###HTML
+###HTML / CSS (8/22/15)
 - ```div```: block level
 - ```span```: inline
-- ```h1-h6``` give *semantic* meaning, shouldn't be used solely for text size
+- ```h1-h6``` give **semantic** meaning, shouldn't be used solely for text size
 - Semantic difference between ```<strong>``` and ```<b>```, and ```<em>``` and ```i```
 - Now have ```header```, ```nav```, ```footer```, ```section```, ```article```, and ```aside``` for structual layout
 - ```article``` elements' content should be context-independent
-- encoded characters always start with a *&* and end with a *;*
+- encoded characters always start with a **&** (ampersand) and end with a **;** (semicolon)
 - ```a``` anchor tags are inline, but may actually enclose block level tags. Most inline tags cannot enclose block level tags.
+- **Cascading** in CSS means everything is read top-to-bottom, and things can be overwritten later in the stylesheet.
+- ```Display``` can be none, block, inline, or inline-block
+- Box Model
+- All elements have height, width, padding, border, margin attributes
+- Inline elements don't accept height or width properties
+- CSS resets and Normalize.css
+- Border takes thickness, type, color (e.g. 5px dashed #CEDDDD)
+- Border radius can bevel sharp edges (50% is circle)
+- Box-sizing: content-box is default, padding-box includes any padding in width/height, border-box includes padding AND border in width/height (works inwards instead of outwards)
 - 
 
 ###Codewars:
