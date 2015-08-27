@@ -121,41 +121,47 @@
     - no overloading in JS
       - function takes the last definition of the function that becomes added to the interpreter environment
 
-###DOM: 
+###DOM (Professional JavaScript for Web Developers, 3rd ed + JavaScript: The Definitive Guide, 6th ed): 
 - DOM manipulations are very expensive 
-- everything is a node
-    - `document.getElementById()`
-    - `getElementsByTagName()`
-    - `document.querySelector()`
-    - `document.querySelectorAll()`
-    - `getElementsByClassName()`
-- Element Traversal:
-    - five properties for DOM elements:
-      - childElementCount
-      - firstElementChild
-      - lastElementChild
-      - previousElementSibling
-      - nextElementSibling
-- Forms
-    - `<form>` element contain `<input>` elements
+- `window` is entry point to DOM
+  - defines properties like `location` (`window.location = "http://www.google.com"` redirects to google)
+  - defines methods like `alert()` and `setTimeout(function, timeOut)`
+  - `window` object is global object, at top of scope chain
+  - `document` is one of the most important properties of `window`; is an object with own properties & methods
+- `document` has a few methods
+  - `getElementById`
+  - `getElementsByClassName`
+  - `getElementsByTagName`
+  - `querySelector`
+  - `querySelectorAll`
+- The Node/Element objects returned by these methods also have own properties
+  - `style` e.g. `<obj>.style.font-size = "12"`
+  - `className`
+  - `id`
+  - event handler properties like `onclick` e.g. `<obj>.onclick = function() { this.innerHTML = ... }`
+    - can alternatively use `<obj>.addEventListener("click", function () { ... })`
+- anything inside `window.onload = function() { ... }` doesn't execute until entire page has loaded
+  - different from jQuery's `$document.ready()`. ready() doesn't wait for all assets (images, fonts, etc) to load, onload() does.
+- The Browser may be thought of as a simplified OS, with web applications as its programs.
 
 ###CSS:
+- `display`
+- `margin`
+- `padding`
+- `border`
+- `overflow-x; overflow-y`
+- `width`
+- `height`
+- `position`
+- `top; left; right; bottom`
+
 - `font-size`
 - `font-family`
 - `font-weight`
 - `line-height`
 - `color`
-
 - `background`
-- `display`
-- `margin`
-- `padding`
-- `overflow-x; overflow-y`
-- `width`
-- `height`
 - `box-shadow; -webkit-box-shadow`
-- `top; left; right; bottom`
-- `position`
 
 - `list-style-type`
 - `cursor`
