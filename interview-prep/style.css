@@ -47,49 +47,100 @@ table {
 	border-spacing: 0;
 }
 
-/* Subscribe Form */
+/* Subscribe form */
 
-/** {
-	box-sizing: border-box;
-}*/
-
-* {
+*,
+*:after,
+*:before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 body {
-	background: #D34444;
+	background: #D35A5A;
 }
 
 .subscribe-form {
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
 	margin: auto;
-	width: 500px;
+	width: 400px;
 	height: 70px;
 }
 
-.subscribe-email {
+.subscribe-placeholder {
+	position: absolute;
+	left: 15px;
 	float: left;
+	
+	/* Fix for vertically-centering inline <span> in block <div> */
+	top: 50%;
+	margin-top: -12px;
+
+	font-family: Arial;
+	font-size: 1.5em;
+	color: #D35A5A;
+
+	/* Keeps user from selecting placeholder text */
+	pointer-events: none;
+
+	-webkit-transition: transform 0.75s ease, opacity 0.35s ease;
+	transition: transform 0.75s ease, opacity 0.35s ease;
+}
+
+.subscribe-email {
 	width: 70%;
 	height: 100%;
-	font-size: 24px;
-	padding-left: 15px;	
+	float: left;
+	padding-left: 15px;
+
+	border: 0;
+	color: gray;
+	font-size: 1.5em;
+
+	/* Gets rid of blue outline around text box when clicked (outline != border) */
+	outline: none;
+
+	-webkit-transition: transform 0.75s ease;
+	transition: transform 0.75s ease;	
 }
 
 .subscribe-submit {
-	float: right;
 	width: 30%;
 	height: 100%;
+	float: right;
+
+	background: #D35A5A;
 	color: white;
-	font-size: 24px;
-	background: #D34444;
-	border: 2px solid #880000;
-	-webkit-transition: background 0.5s ease-in;
+	border: 2px solid #AA4A4A;
+	font-family: Arial;
+	font-size: 1.5em;
+	cursor: pointer;
+
+	/* Gets rid of blue outline around button when clicked (outline != border) */
+	outline: none;
+
+	-webkit-transition: background .25s, transform 0.75s ease;
+	transition: background .25s, transform 0.75s ease;
 }
 
 .subscribe-submit:hover {
-	background: #880000;
+	background: #AA4A4A;
+}
+
+.placeholder-slide-right {
+	z-index: 1;
+	-webkit-transform: translateX(120px);
+	transform: translateX(120px);
+}
+
+.email-slide-right {
+	-webkit-transform: translateX(120px);
+	transform: translateX(120px);
+}
+
+.submit-slide-left {
+	-webkit-transform: translateX(-280px);
+	transform: translateX(-280px);
 }

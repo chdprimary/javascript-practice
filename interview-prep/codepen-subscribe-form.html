@@ -7,8 +7,31 @@
 </head>
 <body>
 	<div class="subscribe-form">
-		<input class="subscribe-email" placeholder="What is your email?">
+		<span class="subscribe-placeholder">What is your email?</span>
+		<input type="text" class="subscribe-email" />
 		<button class="subscribe-submit">Sign Up</button>
 	</div>
+	<script type="text/javascript" defer>
+		'use strict';
+		var placeholder = document.querySelectorAll('.subscribe-placeholder');
+		var email = document.querySelectorAll('.subscribe-email');
+		var submit = document.querySelectorAll('.subscribe-submit');
+
+		email[0].addEventListener('keydown', function(e) {
+			placeholder[0].style.opacity = "0";
+		})
+
+		submit[0].addEventListener('click', function(e) {
+			email[0].value = "";
+			submit[0].innerHTML = "Sweet!";
+			submit[0].classList.add('submit-slide-left');
+			placeholder[0].classList.add('placeholder-slide-right');
+			email[0].classList.add('email-slide-right');
+			setTimeout(function() {
+				placeholder[0].style.opacity = "1";
+				placeholder[0].innerHTML = "Check your inbox!";			
+			}, 500);
+		})
+	</script>
 </body>
 </html>
