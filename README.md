@@ -140,7 +140,7 @@
   - `id`
   - event handler properties like `onclick` e.g. `<obj>.onclick = function() { this.innerHTML = ... }`
     - can alternatively use `<obj>.addEventListener("click", function () { ... })`
-- anything inside `window.onload = function() { ... }` doesn't execute until entire page has loaded
+- Anything inside `window.onload = function() { ... }` doesn't execute until entire page has loaded
   - different from jQuery's `$document.ready()`. ready() doesn't wait for all assets (images, fonts, etc) to load, onload() does.
 - The Browser may be thought of as a simplified OS, with web applications as its programs.
 
@@ -188,6 +188,14 @@
 - Float: left & right
 - Clear: left & right & both (clears floats)
 
+### JS Objects
+- Creating:
+  - literal initializer
+  - constructor function (don't need to return anything)
+  - Object.create(proto)
+- getters / setters (use get / set keywords when defining; must be inside object literal creation syntax)
+  - [gs]et *propname*() { ... }[,]
+
 ###Codewars:
 ```javascript
     <arr>.map() (translate each element in an array into something else, in place)
@@ -233,23 +241,14 @@ k   delete <object.prop>
     <func>.call() is same as .apply except it takes a list of args, not an array
 ```
 - polyfills
-- comma operator (many expressions evaluated, last one's result is returned)
-
-- Functions:
-    - in JS every function is actually a Function Object
-    - Functions can be created with a function expression (no name; anon function) or a function statement (name, statements optional)
-
 - Errors:
   - SyntaxError
   - TypeError
   - RangeError
   - ReferenceError
-
-    
 - converting arguments object to ACTUAL array (so you can use array functions on it):
     - Array.prototype.slice.call(arguments) - slice is arr.slice() - slice creates a copy of it's *this*
         - (logically equivalent to arguments.slice() - but that way is illegal)
-
 - regexp - word boundaries \b, positive lookaheads, OR operator, [abc] (any of a b or c)
 
 ###Crockford's JS Good Parts
