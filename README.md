@@ -195,6 +195,9 @@
   - Object.create(proto)
 - getters / setters (use get / set keywords when defining; must be inside object literal creation syntax)
   - [gs]et *propname*() { ... }[,]
+- Inheritance
+  - [(rare) good resource on JS inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance)
+  - [another good resource on JS inheritance](http://wildlyinaccurate.com/understanding-javascript-inheritance-and-the-prototype-chain/)
 
 ###Codewars:
 ```javascript
