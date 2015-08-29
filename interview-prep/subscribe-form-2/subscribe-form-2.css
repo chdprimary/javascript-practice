@@ -1,0 +1,150 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Subscribe Form #2 */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial;
+}
+
+.container {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	width: 500px;
+	height: 70px;
+
+	background: #2a72a4;
+	border-radius: 8px;
+
+	-webkit-transition: background 0.1s ease, border 0.3s ease;
+	transition: background 0.1s ease, border 0.3s ease;
+}
+
+.click-message {
+	/*display: none;*/
+
+	/* Centers message inside parent */
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	width: 500px;
+	height: 16px;
+	text-align: center;
+	vertical-align: middle;
+
+	cursor: pointer;
+	color: white;
+	font-size: 1em;
+}
+
+.success-message {
+	display: none;
+	
+	/* Centers message inside parent */
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	width: 500px;
+	height: 16px;
+	text-align: center;
+	vertical-align: middle;
+
+	pointer-events: none;
+	color: #4cce95;
+	font-size: 1em;
+}
+
+.form {
+	height: 70px;
+}
+
+.email {
+	display: none;
+	
+	float: left;
+	position: relative;
+	top: 4px;
+	left: 7px;
+	width: 70%;
+	height: 80%;
+	padding: 10px 10px;
+
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	font-size: 1em;
+	color: #2a72a4;
+}
+
+.submit {
+	display: none;
+	
+	position: relative;
+	top: 16px;	
+	right: 20px;
+	float: right;
+	width: 20%;
+	height: 50%;
+	border: none;
+
+	cursor: pointer;
+	outline: none;
+	border-radius: 5px;
+	background: #2a72a4;
+	color: white;
+	font-size: 1em;
+}
+

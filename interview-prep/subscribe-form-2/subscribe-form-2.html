@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Subscribe Form #2</title>
+	<link rel="stylesheet" type="text/css" href="subscribe-form-2.css">
+</head>
+<body>
+	<div class="container">
+		<span class="click-message">Click me to subscribe!</span>
+		<span class="success-message">You're all set, check your email!</span>
+		<div class="form">
+			<input class="email" type="text" />
+			<button class="submit">Sign Up</button>
+		</div>
+	</div>
+	<script type="text/javascript" defer>
+		'use strict';
+
+		var clickMessage = document.querySelectorAll('.click-message');
+		var container = document.querySelectorAll('.container');
+		var email = document.querySelectorAll('.email');
+		var submit = document.querySelectorAll('.submit');
+		var successMessage = document.querySelectorAll('.success-message');
+
+		clickMessage[0].addEventListener('click', function(e) {
+			clickMessage[0].style.display = "none";
+			container[0].style.background = "none";
+			container[0].style.border = "3px solid #7182EB";
+			email[0].style.display = "inline-block";
+			submit[0].style.display = "inline-block";
+		})
+
+		submit[0].addEventListener('click', function(e) {
+			container[0].style.border = "3px solid #10D96A";
+			email[0].style.display = "none";
+			submit[0].style.display = "none";
+			successMessage[0].style.display = "inline";
+		})
+	</script>
+</body>
+</html>
