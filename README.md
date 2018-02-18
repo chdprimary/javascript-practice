@@ -1,4 +1,5 @@
 #TODO:
+- [x] NEW! Read [quick piece about React vs Angular](https://www.quora.com/Is-it-possible-to-replace-Angular-with-react-in-the-MEAN-Stack-What-are-the-pain-points)
 - [x] Watch Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [x] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
