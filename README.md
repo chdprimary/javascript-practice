@@ -13,7 +13,7 @@
 - [x] Learn a bit about [Bower](https://scotch.io/tutorials/manage-front-end-resources-with-bower)
 - [x] Learn a bit about [JSONP](https://en.wikipedia.org/wiki/JSONP)
 - [x] Learn a bit about [IIFEs (immediately-invoked function expressions)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
-- [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ([...] you can use a closure anywhere that you might normally use an object with only a single method.)
+- [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) (closures are functions combined with a lexical scope)
 - [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
 - [x] Read the article [Don't Be Scared of Functional Programming] (http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/) [Functional programming means data is immutable (copy-updated) and stateless (no reliance on anything but the input arguments). Each function must accept arguments, must return something, and must use recursion instead of loops.]
 - [x] Learn a bit about isomorphic javascript
@@ -258,7 +258,7 @@ k   delete <object.prop>
 ###Crockford's JS Good Parts
 - global variables are the worst thing ever because of identifier collision (all compilation units of proj share namespace)
   - use closures to avoid this
-    - closure: outer function which basically acts as a containing block to define local variables. When outer function is called, the inner function is called immediately. The inner function has access to all declarations in outer function.
+    - closure: outer function which basically acts as a containing block to define local variables. The inner function has access to all declarations in outer function.
     - syntax is function(){ _declarations_ ... return _inner function_ }();
     - Or use IIFEs (immediately-invoked function expressions)
 - use strict mode
