@@ -207,14 +207,14 @@
     .split(), .reverse(), .join(), .replace()
     <arr>.push()
 k   typeof
-    <str>.concat() (DON'T USE THIS, USE ASSIGNMENT OPS LIKE +,+= INSTEAD)
+    <str>.concat() (DONT USE THIS, USE ASSIGNMENT OPS LIKE +,+= INSTEAD)
     <num>.toFixed()
 *   parseInt()
     try/catch(e)
 k   instanceof
     Array(<length>)
 
-    regexp (don't use quotes, use / /)
+    regexp (dont use quotes, use / /)
     String.fromCharCode(), .charCodeAt(idx)
     Math.floor(), <str>.substring()
 *   isNaN()
@@ -258,9 +258,9 @@ k   delete <object.prop>
 ###Crockford's JS Good Parts
 - global variables are the worst thing ever because of identifier collision (all compilation units of proj share namespace)
   - use closures to avoid this
-    - closure: outer function which basically acts as a containing block to define local variables. The inner function has access to all declarations in outer function.
-    - syntax is function(){ _declarations_ ... return _inner function_ }();
-    - Or use IIFEs (immediately-invoked function expressions)
+      - closure: outer function which basically acts as a containing block to define local variables. The inner function has access to all declarations in outer function.
+      - syntax is function(){ _declarations_ ... return _inner function_ }();
+      - Or use IIFEs (immediately-invoked function expressions)
 - use strict mode
 - use === and !==, _never_ use == or !=
 - use semicolons explicitly
@@ -275,12 +275,14 @@ k   delete <object.prop>
 ###Airbnb JavaScript Style Guide
 - Don't use `var item = new Object()`
   - Instead use object literal notation, or define a constructor, or use Object.create()
-- When you access a primitive type you work directly on its value, when you access a complex type you work on a reference to its value.
+- ~~When you access a primitive type you work directly on its value, when you access a complex type you work on a reference to its value.~~
+- Javascript (and Python) use call-by-sharing. Wikipedia has a good article on this.
 - Function expressions can be anonymous, named, or IIFE
-- Function statement aka declaration is the same as an expression, minus the `var <ident> = `
-- Function expressions are preferred over function declarations, apparently.
+- ~~Function statement aka declaration is the same as an expression, minus the `var <ident> = `~~
+- Function expressions are differentiated from statements/declarations by [name rules and context rules](https://kangax.github.io/nfe/#expr-vs-decl)
+- Function expressions are preferred over function declarations, because function expressions aren't hoisted.
 - Use dot notation when accessing properties. If the property is in a var, use brackets instead.
-- Always use `var`
+- (Almost) always use `let` over `var`
 - Assign variables at the top of their scope. This avoiding issues with variable hoisting.
 - Assignments do not get hoisted to the top of their scope. Only declarations do.
 - "Soft tab" means the 'tab' is actually composed of spaces.
