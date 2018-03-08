@@ -1,4 +1,5 @@
 #TODO:
+- [x] NEW (Feb 2018)! Read [quick piece about React vs Angular](https://www.quora.com/Is-it-possible-to-replace-Angular-with-react-in-the-MEAN-Stack-What-are-the-pain-points)
 - [x] Watch Crockford's Google Tech Talk <a href="https://youtu.be/hQVTIJBZook">Javascript: The Good Parts</a>
 - [x] Add cards for major JS global object functions to Anki for spaced repetition memorization
 - [x] Read through the popular <a href="https://github.com/airbnb/javascript/tree/master/es5">JavaScript Style Guide</a>
@@ -12,7 +13,7 @@
 - [x] Learn a bit about [Bower](https://scotch.io/tutorials/manage-front-end-resources-with-bower)
 - [x] Learn a bit about [JSONP](https://en.wikipedia.org/wiki/JSONP)
 - [x] Learn a bit about [IIFEs (immediately-invoked function expressions)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
-- [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ([...] you can use a closure anywhere that you might normally use an object with only a single method.)
+- [x] Learn a bit about [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) (closures are functions combined with a lexical scope)
 - [x] Read about [JQuery best practices](http://gregfranko.com/jquery-best-practices/#/) (Reveal.js seems awesome. I also really like that he polls the audience for his next presentation topic on the last slides.)
 - [x] Read the article [Don't Be Scared of Functional Programming] (http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/) [Functional programming means data is immutable (copy-updated) and stateless (no reliance on anything but the input arguments). Each function must accept arguments, must return something, and must use recursion instead of loops.]
 - [x] Learn a bit about isomorphic javascript
@@ -206,14 +207,14 @@
     .split(), .reverse(), .join(), .replace()
     <arr>.push()
 k   typeof
-    <str>.concat() (DON'T USE THIS, USE ASSIGNMENT OPS LIKE +,+= INSTEAD)
+    <str>.concat() (DONT USE THIS, USE ASSIGNMENT OPS LIKE +,+= INSTEAD)
     <num>.toFixed()
 *   parseInt()
     try/catch(e)
 k   instanceof
     Array(<length>)
 
-    regexp (don't use quotes, use / /)
+    regexp (dont use quotes, use / /)
     String.fromCharCode(), .charCodeAt(idx)
     Math.floor(), <str>.substring()
 *   isNaN()
@@ -257,9 +258,9 @@ k   delete <object.prop>
 ###Crockford's JS Good Parts
 - global variables are the worst thing ever because of identifier collision (all compilation units of proj share namespace)
   - use closures to avoid this
-    - closure: outer function which basically acts as a containing block to define local variables. When outer function is called, the inner function is called immediately. The inner function has access to all declarations in outer function.
-    - syntax is function(){ _declarations_ ... return _inner function_ }();
-    - Or use IIFEs (immediately-invoked function expressions)
+      - closure: outer function which basically acts as a containing block to define local variables. The inner function has access to all declarations in outer function.
+      - syntax is function(){ _declarations_ ... return _inner function_ }();
+      - Or use IIFEs (immediately-invoked function expressions)
 - use strict mode
 - use === and !==, _never_ use == or !=
 - use semicolons explicitly
@@ -274,12 +275,14 @@ k   delete <object.prop>
 ###Airbnb JavaScript Style Guide
 - Don't use `var item = new Object()`
   - Instead use object literal notation, or define a constructor, or use Object.create()
-- When you access a primitive type you work directly on its value, when you access a complex type you work on a reference to its value.
+- ~~When you access a primitive type you work directly on its value, when you access a complex type you work on a reference to its value.~~
+- Javascript (and Python) use call-by-sharing. Wikipedia has a good article on this.
 - Function expressions can be anonymous, named, or IIFE
-- Function statement aka declaration is the same as an expression, minus the `var <ident> = `
-- Function expressions are preferred over function declarations, apparently.
+- ~~Function statement aka declaration is the same as an expression, minus the `var <ident> = `~~
+- Function expressions are differentiated from statements/declarations by [name rules and context rules](https://kangax.github.io/nfe/#expr-vs-decl)
+- Function expressions are preferred over function declarations, because function expressions aren't hoisted.
 - Use dot notation when accessing properties. If the property is in a var, use brackets instead.
-- Always use `var`
+- (Almost) always use `let` over `var`
 - Assign variables at the top of their scope. This avoiding issues with variable hoisting.
 - Assignments do not get hoisted to the top of their scope. Only declarations do.
 - "Soft tab" means the 'tab' is actually composed of spaces.
