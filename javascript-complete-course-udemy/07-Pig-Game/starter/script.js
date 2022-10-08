@@ -66,7 +66,7 @@ holdButtonEl.addEventListener('click', function () {
         const activeTotalScoreEl = document.getElementById(`score--${activePlayer}`);
         activeTotalScoreEl.textContent = scores[activePlayer];
 
-        if (scores[activePlayer] >= 15) {
+        if (scores[activePlayer] >= 100) {
             diceEl.classList.add('hidden');
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active'); 
             document.querySelector(`.player--${activePlayer}`).classList.add('player--winner'); 
