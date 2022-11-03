@@ -26,4 +26,23 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function(starterIdx, mainIdx) {
+    return [this.starterMenu[starterIdx], this.mainMenu[mainIdx]];
+    console.log(`You ordered: ${this.starterMenu[starterIdx]}`);
+    console.log(`You ordered: ${this.mainMenu[mainIdx]}`);
+  },
 };
+
+// basic destructuring
+const [starter, main] = restaurant.order(1,2);
+console.log(starter, main);
+
+// nested destructuring
+const nested = [2, 3, [5, 6]];
+const [i, ,[j, k]] = nested;
+console.log(i, j, k);
+
+// defaults
+const [p=1, q=2, r=3] = [8, 9];
+console.log(p, q, r);
