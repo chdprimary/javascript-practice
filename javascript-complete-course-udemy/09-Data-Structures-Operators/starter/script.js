@@ -34,9 +34,16 @@ const restaurant = {
   },
 
   // Used below for showing how to call a function when you don't know the order of args
-  orderDelivery: function({starterIndex=1, mainIndex=0, time='20:00', address}) {
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`);
-  }
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
 };
 
 // basic destructuring
@@ -71,13 +78,15 @@ console.log(menu, starters);
 // overwriting preexisting variables
 let a = 111;
 let b = 999;
-const obj = {a: 23, b: 7, c: 14};
+const obj = { a: 23, b: 7, c: 14 };
 
-({a, b} = obj);
+({ a, b } = obj);
 console.log(a, b);
 
 // Nested objects
-const {fri: {open: o, close: c} } = restaurant.openingHours;
+const {
+  fri: { open: o, close: c },
+} = restaurant.openingHours;
 console.log(o, c);
 
 // calling a function when you don't know the order of arguments
@@ -93,3 +102,58 @@ restaurant.orderDelivery({
 restaurant.orderDelivery({
   address: 'Via del Sole, 21',
 });
+
+// Firefox PIP @ regular speed (for following along) is the way to go!
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+// wrong way to combine arrays
+let newArr = [1, 2, arr]
+// newArr now holds reference to the entire arr
+console.log(newArr);
+// using the spread operator to combine arrays
+newArr = [1, 2, ...arr];
+// ... is the same as writing ...
+newArr = [1, 2, 7, 8, 9];
+
+// this prints the object itself
+console.log(newArr);
+// this prints the integer values inside
+console.log(...newArr);
+// it's equivalent to writing:
+console.log(1, 2, 7, 8, 9);
+
+// spread operator vs desstructuring
+// spread operator is used when you want all elements of array as VALUES
+// destructuring is when you want to selectively stuff array els into VARS
+
+// shallow copying - similar to Object.assign({}, objToCopy)
+const mainMenuShallowCopy = [...restaurant.mainMenu];
+
+// spread operator can be used on any iterables, plus objects
+// iterables include arrays, strings, maps, sets, but NOT objects 
+// although custom objects may implement the Iterable protocol
+
+const str = `Jonas`;
+const letters = [...str, ' ', 'is a muffin head.'];
+console.log(letters);
+
+// Array.join is a function
+console.log(letters.join(''));
+// str.join is not a function
+// console.log(str.join(''));
+
+// Can only use spread where multiple values separated by commas are expected
+// Mostly building literals and passing arguments
+
+// spreading objects
+const newRestaurant = {foundingYear: 1998, ...restaurant, founder: "Guiseppe"}
+console.log(newRestaurant);
+
+// shallow copying objects
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = "Overwritten";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
