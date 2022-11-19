@@ -28,14 +28,16 @@ document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 
 document.querySelector('button').addEventListener('click', (e) => {
-    const inputs = [
-        "underscore_case",
-        " first_name",
-        "Some_Variable ",
-        "  calculate_AGE",
-        "delayed_departure",
-    ]
-    for (const [i, input] of inputs.entries()) {
+    const inputsStr = document.querySelector('textArea').value;
+    const inputsArr = inputsStr.split('\n');
+    // const inputs = [
+    //     "underscore_case",
+    //     " first_name",
+    //     "Some_Variable ",
+    //     "  calculate_AGE",
+    //     "delayed_departure",
+    // ]
+    for (const [i, input] of inputsArr.entries()) {
         let newInput = [];
         const trimmedInput = input.trim();
         const wordArr = trimmedInput.split("_");
