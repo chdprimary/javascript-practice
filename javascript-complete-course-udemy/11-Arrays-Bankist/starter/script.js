@@ -79,8 +79,34 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+// you can log the innerHTML too (case is important)
 console.log(containerMovements.innerHTML);
 
+const createUsernames = function (accounts) {
+  accounts.forEach((account) => {
+    account.username = account.owner
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.at(0))
+    .join('');
+  });
+  return accounts;
+}
+console.log(createUsernames(accounts));
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const deposits = movements.filter((movement) => movement > 0);
+const withdrawals = movements.filter((movement) => movement < 0);
+
+// reduce - a bit different, takes a start value and callback takes an accumulator
+const calcDisplayBalance = function(movements) {
+  const balance = movements.reduce(function(accum, curr, i, arr) {
+    return accum + curr;
+  }, 0);
+  labelBalance.textContent = `${balance} EUR`;
+}
+calcDisplayBalance(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,7 +117,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // forEach callback gets called for each element
 // forEach passes in curr, idx, arr (c,i,a - I remember this)
@@ -143,3 +168,9 @@ console.log(arr.at(-1));
 console.log(arr[arr.length - 1]);
 // also .at works on strings
 console.log('jonas'.at(1));
+
+// Array.map
+const euroToUsd = 1.1;
+const movementsUSD = movements.map(mov => mov * euroToUsd);
+console.log(movements);
+console.log(movementsUSD);
