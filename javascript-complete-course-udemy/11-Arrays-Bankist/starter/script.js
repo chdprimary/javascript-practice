@@ -61,6 +61,26 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov >= 0 ? `deposit` : `withdrawal`;
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>
+    `;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+    // document.createElement('div', )
+  });
+};
+displayMovements(account1.movements);
+console.log(containerMovements.innerHTML);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -73,4 +93,53 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// forEach callback gets called for each element
+// forEach passes in curr, idx, arr (c,i,a - I remember this)
+// you CAN'T use continue or break with forEach
+movements.forEach(function (current, index, array) {
+  if (current > 0) {
+    console.log(`Movement ${index + 1}: You deposited ${current}`);
+  } else {
+    console.log(`Movement ${index + 1}: You withdrew ${Math.abs(current)}`);
+  }
+});
+// can also use forEach on maps (curr, key, map) and sets (curr, _, set)
+
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+
+// this creates a shallow copy of an array (just like [...arr])
+console.log(arr.slice());
+
+// splice mutates the original array
+// it can start deleting things at a certain index, then add new things at that index
+// exactly what it does depends on args passed
+// it also returns what it spliced
+// this says, starting at index 1, delete 2 elements, then add the element "f"
+arr.splice(2, 1, 'f');
+console.log(arr);
+
+// reverse
+const arr2 = ['j', 'k', 'l'];
+arr2.reverse();
+console.log(arr2);
+
+// concat
+let letters = arr.concat(arr2);
+// does same thing as
+letters = [...arr, ...arr2];
+
+arr = [23, 11, 64];
+console.log(arr.at(0));
+// does the same thing as
+console.log(arr[0]);
+// but .at does some things better like negative indexes and chaining
+console.log(arr.at(-1));
+// instead of
+console.log(arr[arr.length - 1]);
+// also .at works on strings
+console.log('jonas'.at(1));
