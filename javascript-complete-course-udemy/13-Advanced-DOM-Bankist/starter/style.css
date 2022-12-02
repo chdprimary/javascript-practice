@@ -662,7 +662,7 @@ h4 {
 }
 
 /* COOKIE MESSAGE */
-.cookie-message {
+.message {
   display: flex;
   align-items: center;
   justify-content: space-evenly;

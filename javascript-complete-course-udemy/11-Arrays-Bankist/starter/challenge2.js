@@ -30,6 +30,8 @@ const calcAverageHumanAge = function(ages) {
     // 3.
     let avg = adults.reduce((sum, age) => sum + age, 0);
     avg /= adults.length;
+    // could also do one-line average by using math! 
+    // let avg = adults.reduce((sum, age, i, arr) => sum + age / arr.length, 0);
     console.log(`Dogs' average human age: ${avg}`);
     return avg;
 }
