@@ -7,6 +7,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -30,6 +32,10 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+});
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 ///////////////////////////////////////////
@@ -100,7 +106,6 @@ h1.addEventListener('mouseenter', alertH1);
 
 // You can also put event handlers in an HTML attribute itself like <h1 onclick="alert('Hi')"...
 // But that's outdated, don't use that pattern anymore
-*/
 
 // rgb(255,255,255)
 const randomInt = (min,max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -129,4 +134,31 @@ document.querySelector('.nav').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log(`NAV `, e.target, e.currentTarget);
   console.log(e.currentTarget === this);
+});
+*/
+
+///////////////////////////////////////////
+// Page navigation
+
+// Without using event delegation
+// If we had a bunch of nav links, this wouldn't scale well
+// We're making N copies of the callback function
+// document.querySelectorAll('.nav__link').forEach(function (el) {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+//   })
+// });
+
+// In event delegation, we add the listener to a common parent element
+// and catch the event once it bubbles up there
+// Another great use for event delegation is to add handlers to elements that
+// don't exist on the page yet (by instead attaching them to an existing parent)
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const anchor = e.target.getAttribute('href');
+    document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' });
+  }
 });
