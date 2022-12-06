@@ -162,3 +162,25 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' });
   }
 });
+
+// Should probably consult the exercises document since this section doesn't have challenges
+
+// TABBED COMPONENT
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target;
+  const button = clicked.closest('button.operations__tab');
+
+  if (!button) return
+
+  tabs.forEach(el => el.classList.remove('operations__tab--active'));
+  button.classList.add('operations__tab--active');
+
+  const activeContent = document.querySelector(`.operations__content--${button.dataset.tab}`);
+
+  tabsContent.forEach(el => el.classList.remove('operations__content--active'));
+  activeContent.classList.add('operations__content--active');
+});
