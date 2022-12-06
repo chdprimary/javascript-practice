@@ -174,12 +174,14 @@ tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target;
   const button = clicked.closest('button.operations__tab');
 
-  if (!button) return
+  if (!button) return;
 
   tabs.forEach(el => el.classList.remove('operations__tab--active'));
   button.classList.add('operations__tab--active');
 
-  const activeContent = document.querySelector(`.operations__content--${button.dataset.tab}`);
+  const activeContent = document.querySelector(
+    `.operations__content--${button.dataset.tab}`
+  );
 
   tabsContent.forEach(el => el.classList.remove('operations__content--active'));
   activeContent.classList.add('operations__content--active');
@@ -190,7 +192,7 @@ tabsContainer.addEventListener('click', function (e) {
 const nav = document.querySelector('.nav');
 const links = document.querySelectorAll('nav__link');
 
-nav.addEventListener('mouseover', function(e) {
+nav.addEventListener('mouseover', function (e) {
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     // const siblings = link.closest('.nav__links').children;
@@ -198,17 +200,26 @@ nav.addEventListener('mouseover', function(e) {
     const logo = link.closest('.nav').querySelector('img');
     console.log(link);
     siblings.forEach(el => {
-      if (el !== link)
-        el.style.opacity = '0.5'
+      if (el !== link) el.style.opacity = '0.5';
     });
     logo.style.opacity = '0.5';
   }
 });
 
-nav.addEventListener('mouseout', function(e) {
+nav.addEventListener('mouseout', function (e) {
   const link = e.target;
   const siblings = link.closest('.nav__links').querySelectorAll('.nav__link');
   const logo = link.closest('.nav').querySelector('img');
-  siblings.forEach(el => el.style.opacity = '1.0');
+  siblings.forEach(el => (el.style.opacity = '1.0'));
   logo.style.opacity = '1.0';
+});
+
+// Sticky nav
+window.addEventListener('scroll', function (e) {
+  const section1CoordY =
+    document.querySelector('#section--1').getBoundingClientRect().top +
+    window.pageYOffset;
+
+  if (window.scrollY > section1CoordY) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
 });
