@@ -185,7 +185,7 @@ tabsContainer.addEventListener('click', function (e) {
   tabsContent.forEach(el => el.classList.remove('operations__content--active'));
   activeContent.classList.add('operations__content--active');
 });
-
+*/
 // Menu fade in / out
 
 const nav = document.querySelector('.nav');
@@ -197,7 +197,6 @@ nav.addEventListener('mouseover', function (e) {
     // const siblings = link.closest('.nav__links').children;
     const siblings = link.closest('.nav__links').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
-    console.log(link);
     siblings.forEach(el => {
       if (el !== link) el.style.opacity = '0.5';
     });
@@ -206,23 +205,24 @@ nav.addEventListener('mouseover', function (e) {
 });
 
 nav.addEventListener('mouseout', function (e) {
-  const link = e.target;
-  const siblings = link.closest('.nav__links').querySelectorAll('.nav__link');
-  const logo = link.closest('.nav').querySelector('img');
-  siblings.forEach(el => (el.style.opacity = '1.0'));
-  logo.style.opacity = '1.0';
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav__links').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el => (el.style.opacity = '1.0'));
+    logo.style.opacity = '1.0';
+  }
 });
 
 // Sticky nav
-window.addEventListener('scroll', function (e) {
-  const section1CoordY =
-    document.querySelector('#section--1').getBoundingClientRect().top +
-    window.pageYOffset;
+// window.addEventListener('scroll', function (e) {
+//   const section1CoordY =
+//     document.querySelector('#section--1').getBoundingClientRect().top +
+//     window.pageYOffset;
 
-  if (window.scrollY > section1CoordY) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-});
-*/
+//   if (window.scrollY > section1CoordY) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
 
 // Same sticky nav, but using intersection observer API
 const obsOptions = {
@@ -231,10 +231,26 @@ const obsOptions = {
 };
 
 const header = document.querySelector('.header');
-const nav = document.querySelector('.nav');
 const observer = new IntersectionObserver(function (entries, observer) {
   const entry = entries.at(0);
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 }, obsOptions);
 observer.observe(header);
+
+// Revealing Elements on Scroll
+const revealSection = function(entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+}
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+const allSections = document.querySelectorAll('section');
+allSections.forEach(function(section) {
+  section.classList.add('section--hidden');
+  sectionObserver.observe(section);
+});
