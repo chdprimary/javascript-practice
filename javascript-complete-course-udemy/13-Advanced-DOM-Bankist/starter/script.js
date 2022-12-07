@@ -135,7 +135,6 @@ document.querySelector('.nav').addEventListener('click', function (e) {
   console.log(`NAV `, e.target, e.currentTarget);
   console.log(e.currentTarget === this);
 });
-*/
 
 ///////////////////////////////////////////
 // Page navigation
@@ -223,3 +222,19 @@ window.addEventListener('scroll', function (e) {
   if (window.scrollY > section1CoordY) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 });
+*/
+
+// Same sticky nav, but using intersection observer API
+const obsOptions = {
+  root: null,
+  threshold: 0,
+};
+
+const header = document.querySelector('.header');
+const nav = document.querySelector('.nav');
+const observer = new IntersectionObserver(function (entries, observer) {
+  const entry = entries.at(0);
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+}, obsOptions);
+observer.observe(header);
