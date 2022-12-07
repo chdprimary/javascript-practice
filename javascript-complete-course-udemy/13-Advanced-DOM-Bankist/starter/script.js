@@ -149,6 +149,7 @@ document.querySelector('.nav').addEventListener('click', function (e) {
 //     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
 //   })
 // });
+*/
 
 // In event delegation, we add the listener to a common parent element
 // and catch the event once it bubbles up there
@@ -185,7 +186,7 @@ tabsContainer.addEventListener('click', function (e) {
   tabsContent.forEach(el => el.classList.remove('operations__content--active'));
   activeContent.classList.add('operations__content--active');
 });
-*/
+
 // Menu fade in / out
 
 const nav = document.querySelector('.nav');
@@ -239,6 +240,7 @@ const observer = new IntersectionObserver(function (entries, observer) {
 observer.observe(header);
 
 // Revealing Elements on Scroll
+const allSections = document.querySelectorAll('section');
 const revealSection = function(entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
@@ -248,9 +250,29 @@ const revealSection = function(entries, observer) {
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
   threshold: 0.15,
+  rootMargin: '200px',
 });
-const allSections = document.querySelectorAll('section');
 allSections.forEach(function(section) {
   section.classList.add('section--hidden');
   sectionObserver.observe(section);
 });
+
+// Lazy loading images
+const imgTargets = document.querySelectorAll('img[data-src]');
+const loadImg = function(entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  // below works, but not perfectly
+  // entry.target.classList.remove('lazy-img');
+  // actually better to remove the blur class once the 'load' event has fired
+  // otherwise slow clients will see the blur removed before the new src has finished downloading
+  // can simulate this issue with network throttling to 'fast 3G' in dev tools
+  entry.target.addEventListener('load', e => e.target.classList.remove('lazy-img'));
+  observer.unobserve(entry.target);
+};
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 1,
+});
+imgTargets.forEach(target => imgObserver.observe(target));
