@@ -240,22 +240,22 @@ const observer = new IntersectionObserver(function (entries, observer) {
 observer.observe(header);
 
 // Revealing Elements on Scroll
-const allSections = document.querySelectorAll('section');
-const revealSection = function(entries, observer) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) return;
-  entry.target.classList.remove('section--hidden');
-  observer.unobserve(entry.target);
-}
-const sectionObserver = new IntersectionObserver(revealSection, {
-  root: null,
-  threshold: 0.15,
-  rootMargin: '200px',
-});
-allSections.forEach(function(section) {
-  section.classList.add('section--hidden');
-  sectionObserver.observe(section);
-});
+// const allSections = document.querySelectorAll('section');
+// const revealSection = function(entries, observer) {
+//   const [entry] = entries;
+//   if (!entry.isIntersecting) return;
+//   entry.target.classList.remove('section--hidden');
+//   observer.unobserve(entry.target);
+// }
+// const sectionObserver = new IntersectionObserver(revealSection, {
+//   root: null,
+//   threshold: 0.15,
+//   rootMargin: '200px',
+// });
+// allSections.forEach(function(section) {
+//   section.classList.add('section--hidden');
+//   sectionObserver.observe(section);
+// });
 
 // Lazy loading images
 const imgTargets = document.querySelectorAll('img[data-src]');
@@ -276,3 +276,36 @@ const imgObserver = new IntersectionObserver(loadImg, {
   threshold: 1,
 });
 imgTargets.forEach(target => imgObserver.observe(target));
+
+// Slider
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+
+// Initial conditions
+// Dustin says most sliders are done like this (side-by-side w/ overflow hidden, then translateX)
+slides.forEach((slide, idx) => slide.style.transform = `translateX(${100*(idx)}%)`);
+
+const buttonLeft = document.querySelector('.slider__btn--left');
+const buttonRight = document.querySelector('.slider__btn--right');
+
+let slideIdx = 0;
+let minSlideIdx = 0;
+let maxSlideIdx = slides.length-1;
+
+buttonRight.addEventListener('click', function(e) {
+  if (slideIdx === maxSlideIdx) slideIdx = 0;
+  else slideIdx += 1;
+  slides.forEach((slide, j) => {
+    const newTransform = `translateX(${(100*j)-(100*slideIdx)}%)`;
+    slide.style.transform = newTransform;
+  });
+});
+buttonLeft.addEventListener('click', function(e) {
+  if (slideIdx === minSlideIdx) slideIdx = maxSlideIdx;
+  else slideIdx -= 1;
+  slides.forEach((slide, j) => {
+    const newTransform = `translateX(${(100*j)-(100*slideIdx)}%)`;
+    slide.style.transform = newTransform;
+  });
+});
