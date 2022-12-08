@@ -277,35 +277,85 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 imgTargets.forEach(target => imgObserver.observe(target));
 
-// Slider
+// Carousel (Jonas calls this a slider)
+const slider = function () {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const buttonLeft = document.querySelector('.slider__btn--left');
+  const buttonRight = document.querySelector('.slider__btn--right');
+  const dotsContainer = document.querySelector('.dots');
 
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
+  // Initial conditions
+  // Dustin says most sliders are done like this (side-by-side w/ overflow hidden, then translateX)
+  slides.forEach((slide, idx) => slide.style.transform = `translateX(${100*(idx)}%)`);
+  let slideIdx = 0;
+  let minSlideIdx = 0;
+  let maxSlideIdx = slides.length-1;
+  // TODO: remove this later
+  // slider.style.transform = 'scale(0.3)';
+  // slider.style.overflow = 'visible';
 
-// Initial conditions
-// Dustin says most sliders are done like this (side-by-side w/ overflow hidden, then translateX)
-slides.forEach((slide, idx) => slide.style.transform = `translateX(${100*(idx)}%)`);
+  // Create some dot position indicator buttons
+  const createDots = function() {
+    slides.forEach(function(_, idx) {
+      const html = `<button class="dots__dot" data-slide="${idx}"></button>`;
+      dotsContainer.insertAdjacentHTML('beforeend', html);
+      // dotsContainer.after(html);
+    });
+  }
+  // debugger;
+  createDots();
 
-const buttonLeft = document.querySelector('.slider__btn--left');
-const buttonRight = document.querySelector('.slider__btn--right');
+  // Activate initial dot position indicator
+  const activateDot = function(slideIdx) {
+    const dotButtons = document.querySelectorAll('.dots__dot');
+    dotButtons.forEach(button => button.classList.remove('dots__dot--active'));
+    document.querySelector(`[data-slide="${slideIdx}"]`).classList.add('dots__dot--active');
+  }
+  activateDot(slideIdx);
 
-let slideIdx = 0;
-let minSlideIdx = 0;
-let maxSlideIdx = slides.length-1;
-
-buttonRight.addEventListener('click', function(e) {
-  if (slideIdx === maxSlideIdx) slideIdx = 0;
-  else slideIdx += 1;
-  slides.forEach((slide, j) => {
-    const newTransform = `translateX(${(100*j)-(100*slideIdx)}%)`;
-    slide.style.transform = newTransform;
+  // Implement dot button slider navigation
+  // const dotButtons = document.querySelectorAll('.dots__dot');
+  // dotButtons.forEach(button => button.addEventListener('click', e => {
+  //   slideIdx = button.dataset.slide;
+  //   goToSlide(slideIdx);
+  // }));
+  // Using event delegation instead
+  dotsContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const button = e.target;
+      slideIdx = button.dataset.slide;
+      activateDot(slideIdx);
+      goToSlide(slideIdx);
+    }
   });
-});
-buttonLeft.addEventListener('click', function(e) {
-  if (slideIdx === minSlideIdx) slideIdx = maxSlideIdx;
-  else slideIdx -= 1;
-  slides.forEach((slide, j) => {
-    const newTransform = `translateX(${(100*j)-(100*slideIdx)}%)`;
-    slide.style.transform = newTransform;
+
+  // Implement left/right button navigation
+  const goToSlide = function(slide) {
+    slides.forEach((slide, j) => {
+      const newTransform = `translateX(${(100*j)-(100*slideIdx)}%)`;
+      slide.style.transform = newTransform;
+    });
+  };
+  const prevSlide = function(_) {
+    if (slideIdx === minSlideIdx) slideIdx = maxSlideIdx;
+    else slideIdx -= 1;
+    goToSlide(slideIdx);
+    activateDot(slideIdx);
+  };
+  const nextSlide = function(_) {
+    if (slideIdx === maxSlideIdx) slideIdx = 0;
+    else slideIdx += 1;
+    goToSlide(slideIdx);
+    activateDot(slideIdx);
+  };
+  buttonLeft.addEventListener('click', prevSlide);
+  buttonRight.addEventListener('click', nextSlide);
+
+  // Implement arrow key slider navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'ArrowRight') nextSlide();
   });
-});
+}
+slider();
