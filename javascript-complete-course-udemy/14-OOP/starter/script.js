@@ -49,3 +49,38 @@ Person.prototype.species = 'Homo Sapiens';
 console.log(jonas.species, matilda.species);
 console.log(jonas.hasOwnProperty('firstName'));
 console.log(jonas.hasOwnProperty('species'));
+
+// ES6 classes are just syntactic sugar on top of the prototype/constructor approach to classes
+// Classes are just a special type of function
+
+// Class expression way of creating a class
+const PersonClassExpression = class {
+}
+
+// Class declaration way of creationg a class
+class PersonClassDeclaration {
+    // needs to be called 'constructor'
+    constructor(firstName, birthYear) {
+        this.firstName = firstName;
+        this.birthYear = birthYear;
+    }
+
+    // No commas between these attributes (vs for eg. objects)
+    // even though defined here, lives on the prototype object just like with constructors
+    calcAge() {
+        console.log(2037 - this.birthYear);
+    }
+}
+
+const jessica = new PersonClassDeclaration('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
+
+PersonClassDeclaration.prototype.greet = function() {
+    console.log(`Hey ${this.firstName}`);
+}
+jessica.greet();
+
+// Classes are not hoisted (even class declarations!)
+// Classes are also first-class citizens!
+// Classes are always executed 'in strict mode'
