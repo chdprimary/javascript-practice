@@ -37,6 +37,8 @@ GOOD LUCK 😀
 //   }
 // }
 
+// Doesn't seem like I can link an EV ES6 class to a Car constructor function
+// Car has to be a constructor function too
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;

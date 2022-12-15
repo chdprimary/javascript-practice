@@ -84,3 +84,19 @@ jessica.greet();
 // Classes are not hoisted (even class declarations!)
 // Classes are also first-class citizens!
 // Classes are always executed 'in strict mode'
+
+class Student extends PersonClassDeclaration {
+    constructor(firstName, birthYear, course) {
+        // super() call needs to happen first
+        super(firstName, birthYear);
+        this.course = course;
+    }
+
+    introduce() {
+        console.log("Introduce method");
+    }
+}
+
+const martha = new Student('Martha', 2012, 'CS');
+martha.greet();
+martha.introduce();
