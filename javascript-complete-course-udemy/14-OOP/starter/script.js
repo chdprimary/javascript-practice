@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 // Constructor functions
 // what happens under the hood when you call `new Constructor(...)`
 // 1. New {} is created
@@ -100,3 +101,126 @@ class Student extends PersonClassDeclaration {
 const martha = new Student('Martha', 2012, 'CS');
 martha.greet();
 martha.introduce();
+*/
+
+// class Account {
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this._pin = pin;
+//     this._movements = [];
+//     this.locale = navigator.language;
+//   }
+
+//   deposit(val) {
+//     this._movements.push(val);
+//   }
+
+//   withdraw(val) {
+//     this.deposit(-val);
+//   }
+
+//   _approveLoan(val) {
+//     return true;
+//   }
+
+//   requestLoan(val) {
+//     if (this._approveLoan(val)) {
+//       this.deposit(val);
+//       console.log('Loan approved');
+//     }
+//   }
+// }
+
+// const acc1 = new Account('Jonas', 'EUR', 1111);
+
+// // acc1.movements.push(250);
+// // acc1.movements.push(-140);
+// // preferable to write an API here
+// acc1.deposit(250);
+// acc1.withdraw(140);
+// // but still can access movements array, which is a concern
+// // can also read PIN from the class
+// // these are reasons we need data encapsulation
+// // JS doesn't have truly private fields YET although there is a lang proposal
+// // Instead you can add an underscore to indicate something is a 'protected' field
+// // To communicate developer intention
+// Account.prototype.getMovements = function () {
+//   return this._movements;
+// };
+
+// console.log(acc1.getMovements());
+
+// Now with public/private fields and public/private methods!
+// you can also make these static, for 8 possible permutations
+// private fields and private methods are VERY new but should work >90% of time
+class Account {
+  // public fields
+  locale = navigator.language;
+  _movements = [];
+
+  // private fields
+  #movements = [];
+  #pin;
+
+  // public methods
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    this.#movements = [];
+    this.locale = navigator.language;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  _approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan approved');
+    }
+  }
+
+  static helper() {
+    console.log('Helper');
+  }
+
+  // private methods
+  #approveLoad(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+
+// acc1.movements.push(250);
+// acc1.movements.push(-140);
+// preferable to write an API here
+acc1.deposit(250);
+acc1.withdraw(140);
+// but still can access movements array, which is a concern
+// can also read PIN from the class
+// these are reasons we need data encapsulation
+// JS doesn't have truly private fields YET although there is a lang proposal
+// Instead you can add an underscore to indicate something is a 'protected' field
+// To communicate developer intention
+// Account.prototype.getMovements = function () {
+//   return this.#movements;
+// };
+
+// won't work
+// console.log(acc1.#pin);
+
+// static method, defined on the class not the instance
+Account.helper();
+
