@@ -224,3 +224,6 @@ acc1.withdraw(140);
 // static method, defined on the class not the instance
 Account.helper();
 
+// you can achieve chaining by returning the instance in your methods
+// ie., `return this`
+// acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
