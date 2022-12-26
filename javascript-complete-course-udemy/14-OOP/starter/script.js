@@ -196,7 +196,7 @@ class Account {
   }
 
   // private methods
-  #approveLoad(val) {
+  #approveLoan(val) {
     return true;
   }
 }
