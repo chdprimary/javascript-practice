@@ -574,12 +574,6 @@ const controlSearchResults = async function() {
         console.log(err);
     }
 };
-// const controlPagination = function () {
-//   console.log(`Pag controller`);
-//   model.state.search.page
-//   resultsView.render(model.getSearchResultsPage(2));
-//   paginationView.render(model.state.search);
-// };
 const decreasePagination = function() {
     (0, _resultsViewJsDefault.default).render(_modelJs.getSearchResultsPage(_modelJs.state.search.page - 1));
     (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
@@ -588,8 +582,15 @@ const increasePagination = function() {
     (0, _resultsViewJsDefault.default).render(_modelJs.getSearchResultsPage(_modelJs.state.search.page + 1));
     (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
 };
+const controlServings = function(newServings) {
+    // Update state to some servings amount
+    _modelJs.updateServings(newServings);
+    // Rerender recipe
+    (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
+};
 const init = function() {
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipes);
+    (0, _recipeViewJsDefault.default).addHandlerServings(controlServings);
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerPageClick(decreasePagination, increasePagination);
 };
@@ -632,6 +633,7 @@ parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
+parcelHelpers.export(exports, "updateServings", ()=>updateServings);
 var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
 const state = {
@@ -683,6 +685,12 @@ const getSearchResultsPage = function(page = state.search.page) {
     const startIndex = (page - 1) * state.search.resultsPerPage;
     const endIndex = page * state.search.resultsPerPage;
     return state.search.results.slice(startIndex, endIndex);
+};
+const updateServings = function(newServings) {
+    state.recipe?.ingredients?.forEach((ing)=>{
+        ing.quantity = ing.quantity * newServings / state.recipe.servings;
+    });
+    state.recipe.servings = newServings;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./config.js":"k5Hzs","./helpers.js":"hGI1E"}],"k5Hzs":[function(require,module,exports) {
@@ -739,6 +747,14 @@ class RecipeView extends (0, _viewJsDefault.default) {
             "load"
         ].forEach((e)=>window.addEventListener(e, handler));
     }
+    addHandlerServings(handler) {
+        this._parentElement?.addEventListener("click", function(e) {
+            const btn = e.target.closest(".btn--update-servings");
+            if (!btn) return;
+            const updateTo = +btn.dataset.updateTo;
+            if (updateTo > 0) handler(updateTo);
+        });
+    }
     _generateMarkup() {
         return `
       <figure class="recipe__fig">
@@ -764,12 +780,12 @@ class RecipeView extends (0, _viewJsDefault.default) {
           <span class="recipe__info-text">servings</span>
 
           <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings - 1}">
               <svg>
                 <use href="${0, _iconsSvgDefault.default}#icon-minus-circle"></use>
               </svg>
             </button>
-            <button class="btn--tiny btn--increase-servings">
+            <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
               <svg>
                 <use href="${0, _iconsSvgDefault.default}#icon-plus-circle"></use>
               </svg>

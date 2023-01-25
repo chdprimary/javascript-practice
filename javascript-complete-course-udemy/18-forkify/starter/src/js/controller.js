@@ -45,13 +45,6 @@ const controlSearchResults = async function () {
   }
 };
 
-// const controlPagination = function () {
-//   console.log(`Pag controller`);
-//   model.state.search.page
-//   resultsView.render(model.getSearchResultsPage(2));
-//   paginationView.render(model.state.search);
-// };
-
 const decreasePagination = function () {
   resultsView.render(model.getSearchResultsPage(model.state.search.page - 1));
   paginationView.render(model.state.search);
@@ -62,8 +55,17 @@ const increasePagination = function () {
   paginationView.render(model.state.search);
 };
 
+const controlServings = function (newServings) {
+  // Update state to some servings amount
+  model.updateServings(newServings);
+
+  // Rerender recipe
+  recipeView.render(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
+  recipeView.addHandlerServings(controlServings);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerPageClick(decreasePagination, increasePagination);
 };
