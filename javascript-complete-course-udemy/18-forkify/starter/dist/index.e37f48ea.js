@@ -547,6 +547,8 @@ const controlRecipes = async function() {
         const recipeId = window?.location?.hash?.slice(1);
         if (!recipeId) return;
         (0, _recipeViewJsDefault.default).renderSpinner();
+        // 0) Update search results view to mark selected recipe
+        (0, _resultsViewJsDefault.default).update(_modelJs.getSearchResultsPage(_modelJs.state.search.page));
         // 1) Loading recipe
         await _modelJs.loadRecipe(recipeId);
         const { recipe  } = _modelJs.state;
@@ -586,7 +588,8 @@ const controlServings = function(newServings) {
     // Update state to some servings amount
     _modelJs.updateServings(newServings);
     // Rerender recipe
-    (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
+    // recipeView.render(model.state.recipe);
+    (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
 };
 const init = function() {
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipes);
@@ -1143,12 +1146,28 @@ var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
+    // rerenders everything, including images
     render(data) {
         if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
         this._data = data;
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    }
+    // rerenders everything but images
+    update(data) {
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newDOM = document.createRange().createContextualFragment(newMarkup);
+        const newElements = Array.from(newDOM.querySelectorAll("*"));
+        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+        newElements.forEach((newEl, i)=>{
+            const curEl = curElements[i];
+            // Update changed TEXT
+            if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            // Update changed ATTRIBUTES
+            if (!newEl.isEqualNode(curEl)) Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
     }
     renderSpinner() {
         const markup = `
@@ -1234,9 +1253,10 @@ class ResultsView extends (0, _viewJsDefault.default) {
         return this._data.map(this._generateMarkupSearchResult).join("");
     }
     _generateMarkupSearchResult(result) {
+        const curId = window.location.hash.slice(1);
         return `
     <li class="preview">
-    <a class="preview__link" href="#${result.id}">
+    <a class="preview__link ${curId === result.id ? "preview__link--active" : ""}" href="#${result.id}">
       <figure class="preview__fig">
         <img src="${result.image}" alt="${result.title}" />
       </figure>
