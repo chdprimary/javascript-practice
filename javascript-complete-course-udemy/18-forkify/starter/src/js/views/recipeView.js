@@ -112,7 +112,7 @@ class RecipeView extends View {
         >
           <span>Directions</span>
           <svg class="search__icon">
-            <use href="${this._data.sourceUrl}"></use>
+            <use href="${icons}#icon-arrow-right"></use>
           </svg>
         </a>
       </div>
