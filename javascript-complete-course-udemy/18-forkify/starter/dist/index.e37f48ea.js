@@ -804,7 +804,7 @@ const uploadRecipe = async function(newRecipe) {
     try {
         const ingredients = Object.entries(newRecipe).filter((entry)=>entry[0].startsWith("ingredient") && entry[1] !== "").map((entry)=>{
             const [_, ingredient] = entry;
-            const ingredientArr = ingredient.replaceAll(" ", "").split(",");
+            const ingredientArr = ingredient.split(",").map((el)=>el.trim());
             if (ingredientArr.length !== 3) throw new Error("Wrong ingredient format! Please use correct format.");
             const [quantity, unit, description] = ingredientArr;
             return {
@@ -1028,7 +1028,6 @@ var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
-    // rerenders everything, including images
     render(data, render = true) {
         if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
         this._data = data;
@@ -1587,7 +1586,6 @@ class AddRecipeView extends (0, _viewJsDefault.default) {
             handler(newRecipe);
         });
     }
-    _generateMarkup() {}
 }
 exports.default = new AddRecipeView();
 
