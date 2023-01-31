@@ -99,9 +99,24 @@ const controlAddRecipe = async function (newRecipe) {
     // Render submitted recipe
     recipeView.render(model.state.recipe);
 
+    // Render bookmarks view
+    bookmarksView.render(model.state.bookmarks);
+
     // Close submission form and overlay
     addRecipeView.renderMessage();
-    setTimeout(addRecipeView.toggleWindow, MODAL_CLOSE_SECONDS * 1000);
+    setTimeout(
+      // window & overlay weren't getting toggled. this tripped me up
+      // I was just doing: setTimeout(addRecipeView.toggleWindow, 2000);
+      // but this doesn't work bc you're passing only the function ref
+      // once setTimeout calls the function, `this` isn't set to addRecipeView
+      // so `this` becomes `window`.
+      // should normally pass a wrapper function as callback or bind as below
+      addRecipeView.toggleWindow.bind(addRecipeView),
+      MODAL_CLOSE_SECONDS * 1000
+    );
+
+    // change ID in address bar
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
   } catch (err) {
     console.error(err);
     addRecipeView.renderError(err);

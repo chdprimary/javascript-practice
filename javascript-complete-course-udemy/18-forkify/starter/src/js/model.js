@@ -1,5 +1,6 @@
 import { API_URL, API_KEY, RESULTS_PER_PAGE } from './config.js';
-import { getJSON, sendJSON } from './helpers.js';
+// import { getJSON, sendJSON } from './helpers.js';
+import { AJAX } from './helpers.js';
 
 export const state = {
   recipe: {},
@@ -29,7 +30,7 @@ const createRecipeObject = function (data) {
 
 export const loadRecipe = async function (recipeId) {
   try {
-    const data = await getJSON(`${API_URL}${recipeId}`);
+    const data = await AJAX(`${API_URL}${recipeId}?key=${API_KEY}`);
     state.recipe = createRecipeObject(data);
 
     if (state.bookmarks.some(bookmark => bookmark.id === recipeId))
@@ -42,12 +43,10 @@ export const loadRecipe = async function (recipeId) {
   }
 };
 
-export const saveRecipe = async function (newRecipe) {};
-
 export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
-    const data = await getJSON(`${API_URL}?search=${query}`);
+    const data = await AJAX(`${API_URL}?search=${query}&key=${API_KEY}`);
 
     state.search.results = data.data.recipes.map(recipe => {
       return {
@@ -116,28 +115,34 @@ const _clearBookmarks = function () {
 // _clearBookmarks();
 
 export const uploadRecipe = async function (newRecipe) {
-  const ingredients = Object.entries(newRecipe)
-    .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
-    .map(entry => {
-      const [_, ingredient] = entry;
-      const ingredientArr = ingredient.replaceAll(' ', '').split(',');
-      if (ingredientArr.length !== 3)
-        throw new Error('Wrong ingredient format! Please use correct format.');
-      const [quantity, unit, description] = ingredientArr;
-      return { quantity: quantity ? +quantity : null, unit, description };
-    });
+  try {
+    const ingredients = Object.entries(newRecipe)
+      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+      .map(entry => {
+        const [_, ingredient] = entry;
+        const ingredientArr = ingredient.replaceAll(' ', '').split(',');
+        if (ingredientArr.length !== 3)
+          throw new Error(
+            'Wrong ingredient format! Please use correct format.'
+          );
+        const [quantity, unit, description] = ingredientArr;
+        return { quantity: quantity ? +quantity : null, unit, description };
+      });
 
-  const recipe = {
-    title: newRecipe.title,
-    source_url: newRecipe.sourceUrl,
-    image_url: newRecipe.image,
-    publisher: newRecipe.publisher,
-    cooking_time: +newRecipe.cookingTime,
-    servings: +newRecipe.servings,
-    ingredients,
-  };
-  console.log(recipe);
-  const data = await sendJSON(`${API_URL}?key=${API_KEY}`, recipe);
-  state.recipe = createRecipeObject(data);
-  addBookmark(state.recipe);
+    const recipe = {
+      title: newRecipe.title,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients,
+    };
+    const data = await AJAX(`${API_URL}?key=${API_KEY}`, recipe);
+    state.recipe = createRecipeObject(data);
+    addBookmark(state.recipe);
+    console.log(state.recipe);
+  } catch (err) {
+    throw err;
+  }
 };
